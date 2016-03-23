@@ -4,7 +4,7 @@ import deform.widget
 from pyramid.httpexceptions import HTTPFound
 from pyramid.view import view_config
 
-from .models import DBSession, Page
+from .models import DBSession, Page,Nameh
 
 
 class WikiPage(colander.MappingSchema):
@@ -13,7 +13,11 @@ class WikiPage(colander.MappingSchema):
         colander.String(),
         widget=deform.widget.RichTextWidget()
     )
-
+class NamehPage(colander.MappingSchema):
+    nnameh=colander.SchemaNode(colander.String())
+    mnameh=colander.SchemaNode(colander.String())
+    chnameh=colander.SchemaNode(colander.String(),widget=deform.widget.TextAreaWidget())
+    manameh=colander.SchemaNode(colander.String(),widget=deform.widget.RichTextWidget())
 
 class WikiViews(object):
     def __init__(self, request):
@@ -23,11 +27,52 @@ class WikiViews(object):
     def wiki_form(self):
         schema = WikiPage()
         return deform.Form(schema, buttons=('submit',))
-
+    @property
+    def nameh_form(self):
+        schem=NamehPage()
+        return deform.Form(schem,buttons=('submit',))
+    @property
+    def reqt(self):
+        return self.nameh_form.get_widget_resources()
     @property
     def reqts(self):
         return self.wiki_form.get_widget_resources()
 
+    @view_config(route_name='nameh', renderer='nameh_view.pt')
+    def nameh_view(self):
+        form = self.nameh_form.render()
+        if 'submit' in self.request.params:
+            controls = self.request.POST.items()
+            try:
+                appstruct = self.nameh_form.validate(controls)
+            except deform.ValidationFailure as f:
+                # Form is NOT valid
+                return dict(form=f.render())
+
+            # Add a new page to the database
+            new_nnameh = appstruct['nnameh']
+            new_mnameh = appstruct['mnameh']
+            new_chnameh=appstruct['chnameh']
+            new_manameh=appstruct['manameh']
+            DBSession.add(Nameh(nnameh=new_nnameh,mnameh=new_mnameh,chnameh=new_chnameh,manameh=new_manameh))
+
+            # Get the new ID and redirect
+            page = DBSession.query(Nameh).filter_by(mnameh=new_mnameh).one()
+            new_uid = page.id
+
+            url = self.request.route_url('nameh_page',id=new_uid)
+            return HTTPFound(url)
+
+        return dict(form=form)
+    @view_config(route_name='nameh_page',renderer='namehpage_view.pt')
+    def nameh_page(self):
+        id = int(self.request.matchdict['id'])
+        page = DBSession.query(Nameh).filter_by(id=id).one()
+        return dict(page=page)
+    @view_config(route_name='nameh_view', renderer='nameh.pt')
+    def nameh(self):
+        pages = DBSession.query(Nameh).order_by(Nameh.manameh)
+        return dict( pages=pages)
     @view_config(route_name='wiki_view', renderer='wiki_view.pt')
     def wiki_view(self):
         pages = DBSession.query(Page).order_by(Page.title)

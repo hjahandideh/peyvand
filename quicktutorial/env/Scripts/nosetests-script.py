@@ -1,4 +1,4 @@
-#!C:\projects\quicktutorial\env\Scripts\python.exe
+#!c:\projects\quicktutorial\env\scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'nose==1.3.7','console_scripts','nosetests'
 __requires__ = 'nose==1.3.7'
 import sys

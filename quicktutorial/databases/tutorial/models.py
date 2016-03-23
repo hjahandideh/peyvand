@@ -18,14 +18,18 @@ from zope.sqlalchemy import ZopeTransactionExtension
 DBSession = scoped_session(
     sessionmaker(extension=ZopeTransactionExtension()))
 Base = declarative_base()
-
-
 class Page(Base):
     __tablename__ = 'wikipages'
     uid = Column(Integer, primary_key=True)
     title = Column(Text, unique=True)
     body = Column(Text)
-
+class Nameh(Base):
+    __tablename__='nameh'
+    id=Column(Integer,primary_key=True)
+    nnameh=Column(Text)
+    mnameh=Column(Text)
+    chnameh=Column(Text)
+    manameh=Column(Text)
 
 class Root(object):
     __acl__ = [(Allow, Everyone, 'view'),

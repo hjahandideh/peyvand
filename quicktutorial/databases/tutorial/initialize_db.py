@@ -11,7 +11,7 @@ from pyramid.paster import (
 
 from .models import (
     DBSession,
-    Page,
+    Page,Nameh,
     Base,
     )
 
@@ -33,5 +33,13 @@ def main(argv=sys.argv):
     DBSession.configure(bind=engine)
     Base.metadata.create_all(engine)
     with transaction.manager:
+        nameh=Nameh(nnameh='اداری',mnameh='مرخصی',chnameh='درخواست مرخصی از ریاست',manameh='سسنتبذسبند' \
+                                                                                          'بایذبیندبمی' \
+                                                                                          'بذنیبدینب' \
+                                                                                          'ابمیتبمکی' \
+                                                                                          'ابمنابمیسب' \
+                                                                                          'سایبمبامی' \
+                                                                                          'بنمسیبانمی')
         model = Page(title='Root', body='<p>Root</p>')
         DBSession.add(model)
+        DBSession.add(nameh)

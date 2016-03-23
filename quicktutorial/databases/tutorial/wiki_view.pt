@@ -5,15 +5,15 @@
 </head>
 <body>
 <h1>Wiki</h1>
-
+<a href="${request.route_url('nameh')}">nameh</a>
 <a href="${request.route_url('wikipage_add')}">Add
     WikiPage</a>
-<ul>
-    <li tal:repeat="page pages">
-        <a href="${request.route_url('wikipage_view', uid=page.uid)}">
+<table>
+    <tr tal:repeat="page pages">
+        <td><a href="${request.route_url('wikipage_view', uid=page.uid)}">
                 ${page.title}
-        </a>
-    </li>
-</ul>
+        </a></td>
+    </tr>
+</table>
 </body>
 </html>

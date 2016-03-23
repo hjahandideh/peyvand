@@ -1,0 +1,40 @@
+
+
+.m{
+	align-items:center;
+	margin:250px;
+	border: 1px solid #8092AF;
+	
+}
+.n{
+	padding-left:20%;
+}
+
+input{
+	margin: 10px;
+
+}
+label{
+	margin: 10px;
+}
+.main{
+	width:980px;
+	height:860px;
+	background:#0A2B4E;
+	
+}
+.form{
+	
+	margin:150px 245px;
+	
+	width:490px;
+	height:600px;
+	background:white;	
+}
+.fon{
+	font-family: "Droid Naskh";
+}
+.ta{
+
+    border: 1px solid #8092AF;
+}

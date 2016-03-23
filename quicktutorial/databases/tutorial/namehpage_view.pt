@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+</head>
+<body>
+<a href="${request.route_url('nameh')}">
+    Up
+</a>
+<table>
+    <tr >
+
+        <td>${page.nnameh}</td>
+        <td>${page.chnameh}</td>
+        <td>${page.mnameh}</td>
+        <td>${page.manameh}</td>
+
+    </tr>
+</table>
+</body>
+</html>

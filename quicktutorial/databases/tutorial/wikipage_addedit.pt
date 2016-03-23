@@ -14,8 +14,6 @@
     </tal:block>
 </head>
 <body>
-<h1>Wiki</h1>
-
 <p>${structure: form}</p>
 <script type="text/javascript">
     deform.load()

@@ -5,17 +5,16 @@ from pyramid.httpexceptions import HTTPFound
 from pyramid.view import view_config
 
 pages = {
-    '100': dict(uid='100', title='Page 100', body='<em>100</em>'),
-    '101': dict(uid='101', title='Page 101', body='<em>101</em>'),
-    '102': dict(uid='102', title='Page 102', body='<em>102</em>')
+    '100': dict(uid='100', title='Page 100', body='<em>100</em>',f=1),
+    '101': dict(uid='101', title='Page 101', body='<em>101</em>',f=56),
+    '102': dict(uid='102', title='Page 102', body='<em>102</em>',f=64)
 }
 
 class WikiPage(colander.MappingSchema):
     title = colander.SchemaNode(colander.String())
-    body = colander.SchemaNode(
-        colander.String(),
-        widget=deform.widget.RichTextWidget()
-    )
+
+    body = colander.SchemaNode(colander.String(),widget=deform.widget.RichTextWidget())
+    f=colander.SchemaNode(colander.Integer())
 
 
 class WikiViews(object):
@@ -53,7 +52,7 @@ class WikiViews(object):
             new_uid = str(last_uid + 1)
             pages[new_uid] = dict(
                 uid=new_uid, title=appstruct['title'],
-                body=appstruct['body']
+                body=appstruct['body'], f=appstruct['f']
             )
 
             # Now visit new page
@@ -86,6 +85,7 @@ class WikiViews(object):
             # Change the content and redirect to the view
             page['title'] = appstruct['title']
             page['body'] = appstruct['body']
+            page['f']=appstruct['f']
 
             url = self.request.route_url('wikipage_view',
                                          uid=page['uid'])

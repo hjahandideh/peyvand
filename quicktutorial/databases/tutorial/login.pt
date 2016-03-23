@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="${request.static_url('tutorial:css/bootstrap-rtl.css') }"/>
+    <link rel="stylesheet" href="${request.static_url('tutorial:css/style.css') }"/>
+    <link rel="stylesheet" href="${request.static_url('tutorial:css/font.css') }"/>
+
+</head>
+<body>
+<div class="container">
+
+
+
+    <div class="col-md-12 main">
+            <div class="row">
+
+
+                <div class="form fon" >
+				<div>
+                    <img rel="stylesheet" src="${request.static_url('tutorial:images/peyvand.png') }"/>
+
+                    <p>
+                        ورود به اتوماسیون
+                    </p>
+                </div>
+				<form action="${url}" method="post" class="fon">
+                <input type="hidden" name="came_from" value="${came_from}"/>
+
+               <input type="text" id="login" name="login" value="${login}"/>
+                <label for="login" class="fon">نام کاربری</label><br/>
+
+                <input type="password" id="password" name="password" value="${password}"/>
+                <label for="password">رمز عبور</label><br/>
+              <input type="submit" name="form.submitted" value="Log In"/>
+            </form></div>
+            </div>
+        </div>
+        </div>
+
+
+<script href="${request.static_url('tutorial:js/bootstrap.min.js')}" type="text/javascript/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+
+@font-face {
+  font-family: 'Koodak';
+  src: url('fonts/Koodak.otf?#'),  /* IE6–8 */
+       url('fonts/Koodak.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+@font-face {
+  font-family: 'RoyaBold';
+  src: url('fonts/RoyaBold.otf?#'),  /* IE6–8 */
+       url('fonts/RoyaBold.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+@font-face {
+  font-family:'Droid Naskh';
+  src:url('DroidNaskh.ttf')format('truetype');
+}
+@font-face {
+  font-family: 'Yekan';
+  src: url('fonts/Yekan.otf?#'),  /* IE6–8 */
+       url('fonts/BYYEYAN.TTF') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+@font-face {
+  font-family: 'Mehr';
+  src: url('fonts/Mehr.otf?#'),  /* IE6–8 */
+       url('fonts/Mehr.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+@font-face {
+  font-family: 'Zar';
+  src: url('fonts/Zar.otf?#'),  /* IE6–8 */
+       url('fonts/Zar.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+@font-face {
+  font-family: 'Mitra';
+  src: url('fonts/Mitra.otf?#'),  /* IE6–8 */
+       url('fonts/Mitra.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+@font-face {
+  font-family: 'Roya';
+  src: url('fonts/Roya.otf?#'),  /* IE6–8 */
+       url('fonts/Roya.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}

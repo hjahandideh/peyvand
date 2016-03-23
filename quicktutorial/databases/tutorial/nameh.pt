@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Wiki: View</title>
+</head>
+<body>
+<h1>Wiki</h1>
+
+
+<table>
+    <tr tal:repeat="page pages">
+        <td><a href="${request.route_url('nameh_page', id=page.id)}">
+                ${page.mnameh}
+        </a></td>
+    </tr>
+</table>
+</body>
+</html>
