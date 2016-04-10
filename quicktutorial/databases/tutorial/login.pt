@@ -17,7 +17,7 @@
 
                 <div class="form fon" >
 				<div>
-                    <img rel="stylesheet" src="${request.static_url('tutorial:images/peyvand.png') }"/>
+                    <img src="${request.static_url('tutorial:images/peyvand.png') }"/>
 
                     <p>
                         ورود به اتوماسیون
@@ -26,13 +26,13 @@
 				<form action="${url}" method="post" class="fon">
                 <input type="hidden" name="came_from" value="${came_from}"/>
 
-               <input type="text" id="login" name="login" value="${login}"/>
-                <label for="login" class="fon">نام کاربری</label><br/>
+               <input type="text" placeholder="نام کاربری" id="login" name="login" value="${login}"/>
+                <br/>
 
-                <input type="password" id="password" name="password" value="${password}"/>
-                <label for="password">رمز عبور</label><br/>
-              <input type="submit" name="form.submitted" value="Log In"/>
-            </form></div>
+                <input type="password" placeholder="رمز عبور" id="password" name="password" value="${password}"/>
+<br/>
+              <input type="submit" name="form-submitted" value="Log In"/>
+            </form><span tal:replace="message"></span></div>
             </div>
         </div>
         </div>

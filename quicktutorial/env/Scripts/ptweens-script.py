@@ -1,4 +1,4 @@
-#!c:\projects\quicktutorial\env\scripts\python.exe
+#!d:\projects\quicktutorial\env\scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'pyramid','console_scripts','ptweens'
 __requires__ = 'pyramid'
 import sys

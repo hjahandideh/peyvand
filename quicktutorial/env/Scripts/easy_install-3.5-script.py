@@ -1,4 +1,4 @@
-#!c:\projects\quicktutorial\env\scripts\python.exe
+#!d:\projects\quicktutorial\env\scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'setuptools','console_scripts','easy_install-3.5'
 __requires__ = 'setuptools'
 import sys

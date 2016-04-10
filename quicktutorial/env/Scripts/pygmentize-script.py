@@ -1,4 +1,4 @@
-#!c:\projects\quicktutorial\env\scripts\python.exe
+#!d:\projects\quicktutorial\env\scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'pygments','console_scripts','pygmentize'
 __requires__ = 'pygments'
 import sys

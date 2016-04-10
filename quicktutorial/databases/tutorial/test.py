@@ -11,7 +11,7 @@ def _initTestingDB():
         Page,
         Base
         )
-    engine = create_engine('sqlite://')
+    engine = create_engine('sqlite://sqltutorial')
     Base.metadata.create_all(engine)
     DBSession.configure(bind=engine)
     with transaction.manager:

@@ -1,4 +1,4 @@
-#!c:\projects\quicktutorial\env\scripts\python.exe
+#!d:\projects\quicktutorial\env\scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'tutorial','console_scripts','initialize_tutorial_db'
 __requires__ = 'tutorial'
 import sys

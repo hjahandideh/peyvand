@@ -4,7 +4,8 @@
     <title>Wiki: View</title>
 </head>
 <body>
-<h1>Wiki</h1>
+<h1></h1>
+<a href="${request.route_url('user')}">user</a>
 <a href="${request.route_url('nameh')}">nameh</a>
 <a href="${request.route_url('wikipage_add')}">Add
     WikiPage</a>
@@ -15,5 +16,11 @@
         </a></td>
     </tr>
 </table>
+<div>
+
+  <a tal:condition="view.logged_in is not None"
+            href="${request.application_url}/"></a>
+</div>
+
 </body>
 </html>

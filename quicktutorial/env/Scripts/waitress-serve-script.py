@@ -1,4 +1,4 @@
-#!c:\projects\quicktutorial\env\scripts\python.exe
+#!d:\projects\quicktutorial\env\scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'waitress','console_scripts','waitress-serve'
 __requires__ = 'waitress'
 import sys
