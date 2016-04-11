@@ -1,26 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Wiki: View</title>
+    <title>سازمان الکترونیک پیوند</title>
+    <link rel="stylesheet"
+          href="${request.static_url('tutorial:css/bootstrap-rtl.css') }"/>
+       <link rel="stylesheet"
+          href="${request.static_url('tutorial:css/bootstrap-theme.css') }"/>
+<link rel="stylesheet"
+          href="${request.static_url('tutorial:css/style.css') }"/>
+<link rel="stylesheet"
+          href="${request.static_url('tutorial:css/font.css') }"/>
 </head>
-<body>
-<h1></h1>
-<a href="${request.route_url('user')}">user</a>
-<a href="${request.route_url('nameh')}">nameh</a>
-<a href="${request.route_url('wikipage_add')}">Add
-    WikiPage</a>
-<table>
-    <tr tal:repeat="page pages">
-        <td><a href="${request.route_url('wikipage_view', uid=page.uid)}">
-                ${page.title}
-        </a></td>
-    </tr>
-</table>
-<div>
 
-  <a tal:condition="view.logged_in is not None"
-            href="${request.application_url}/"></a>
+
+<body style="text-align:right;">
+<div class="row">
+<div class="col-md-2">
+<div class="row">
+<p>سیستم اتوماسیون اداری پیوند</p>
 </div>
+<div class="row">
+<div class="col-md-12">تاریخ:../../..</div>
+<div class="col-md-12">ساعت:  :  </div>
+</div>
+<div class="row ta">
+<div class="col-md-2">
+<span class="glyphicon glyphicon-align-justify"></span>
+</div>
+<div class="col-md-10">
+<p><a href="paygir.html">کارتابل</a></p>
+</div>
+
+<div class="col-md-2">
+
+<span class="glyphicon glyphicon-pencil"></span>
+
+</div>
+<div class="col-md-10">
+<p><a href="deghdam.html">ارسالی ها</a></p>
+</div>
+
+<div class="col-md-2">
+<span class="glyphicon glyphicon-time"></span>
+
+</div>
+<div class="col-md-10">
+<p>پیش نویس ها</p>
+</div>
+
+</div>
+<div class="row ta">
+<div class="col-md-2">
+<span class="glyphicon glyphicon-envelope"></span>
+</div>
+<div class="col-md-10">
+<p>کارتابل</p>
+</div>
+
+<div class="col-md-2">
+<span class="glyphicon glyphicon-text-width"></span>
+</div>
+<div class="col-md-10">
+<p>کارتابل</p>
+</div>
+
+<div class="col-md-2">
+<span class="glyphicon glyphicon-pencil"></span>
+</div>
+<div class="col-md-10">
+<p>کارتابل</p>
+</div>
+
+<div class="col-md-2">
+<span class="glyphicon glyphicon-comment"></span>
+</div>
+<div class="col-md-10">
+<p>کارتابل</p>
+</div>
+
+<div class="col-md-2">
+<span class="glyphicon glyphicon-share"></span>
+</div>
+<div class="col-md-10">
+<p>کارتابل</p>
+</div>
+</div>
+<div class="row ta">
+
+<div class="col-md-2">
+<span class="glyphicon glyphicon-bell"></span>
+</div>
+<div class="col-md-10">
+<p>کارتابل</p>
+</div>
+
+<div class="col-md-2">
+<span class="glyphicon glyphicon-search"></span>
+</div>
+<div class="col-md-10">
+<p>کارتابل</p>
+</div>
+
+<div class="col-md-2">
+<span class="glyphicon glyphicon-user"></span>
+</div>
+<div class="col-md-10">
+<p>کارتابل</p>
+</div>
+<div class="col-md-2">
+<span class="glyphicon glyphicon-tasks"></span>
+</div>
+<div class="col-md-10">
+<p>کارتابل</p>
+</div>
+
+<div class="col-md-2">
+<span class="glyphicon glyphicon-trash"></span>
+</div>
+<div class="col-md-10">
+<p>کارتابل</p>
+</div>
+
+<div class="col-md-2">
+<span class="glyphicon glyphicon-list-alt"></span>
+</div>
+<div class="col-md-10">
+<p>کارتابل</p>
+</div>
+
+<div class="col-md-2">
+<span class="glyphicon glyphicon-briefcase"></span>
+</div>
+<div class="col-md-10">
+<p>کارتابل</p>
+</div>
+</div>
+
+</div>
+<div class="col-md-10">
+<div class="row  ta">
+<div class="col-md-6">
+<div class="col-md-3" style="display: inline-block">
+    کاربر:
+    <p tal:repeat="log log">${log.semat}</p></div>
+</div>
+<div class="col-md-6">
+<div class="col-md-2">gf</div>
+<div class="col-md-2">fg</div>
+<div class="col-md-2"> <a tal:condition="view.logged_in is not None" href="${request.application_url}/"><p tal:repeat="log log">${log.name}</p></a></div>
+
+</div>
+</div>
+<div class="bg-primary am">کاربر محترم به سیستم اوتوماسیون خوش آمدید</div>
+<div class="row tm">
+
+hjj
+</div>
+</div>
+</div>
+<script src="${request.static_url('tutorial:js/bootstrap.min.js') }"></script>
+
 
 </body>
 </html>
+
+

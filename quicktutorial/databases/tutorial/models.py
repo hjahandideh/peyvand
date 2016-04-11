@@ -15,21 +15,8 @@ from zope.sqlalchemy import ZopeTransactionExtension
 DBSession = scoped_session(
     sessionmaker(extension=ZopeTransactionExtension()))
 Base = declarative_base()
-class Page(Base):
-    __tablename__ = 'wikipages'
-    uid = Column(Integer, primary_key=True)
-    title = Column(Text)
-    body = Column(Text)
 
 
-
-class Logi(Base):
-    __tablename__='log'
-    id=Column(Integer,primary_key=True,autoincrement=True)
-    username=Column(Text,ForeignKey('user.username'))
-    name=Column(Text,ForeignKey('user.name'))
-    usernam = relationship("User",foreign_keys="[Logi.username]")
-    er=relationship("User",foreign_keys="[Logi.name]")
 
 class User(Base):
     __tablename__='user'
@@ -76,7 +63,7 @@ class Nameh(Base):
 
 class RootFactory(object):
     __acl__ = [(Allow, Everyone, 'view'),
-               (Allow, 'group:editors', 'edit')]
+               (Allow, 'group:editors', 'edit'),(Allow,'group:admin','admin')]
 
     def __init__(self, request):
         pass

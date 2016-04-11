@@ -25,10 +25,10 @@ label{
 }
 .form{
 	
-	margin:150px 245px;
-	
-	width:490px;
-	height:600px;
+	margin:150px 650px;
+	border-radius: 2px 5px 2px 5px;
+	width:350px;
+	height:470px;
 	background:white;	
 }
 .fon{
@@ -37,4 +37,12 @@ label{
 .ta{
 
     border: 1px solid #8092AF;
+}
+.am a{color:white}
+.am a:hover{color:green}
+.am{
+	font-size: 20px;
+	font-family: "Droid Serif";
+	color:white;
+	text-align: center;
 }

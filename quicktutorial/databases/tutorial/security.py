@@ -1,11 +1,13 @@
-from tutorial.models import DBSession,User
+from tutorial.models import User
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+some_engine = create_engine('sqlite:///tutorial.sqlite')
+Session = sessionmaker(bind=some_engine)
+session = Session()
 
-GROUPS = {'editor': ['group:editors']}
 
-
-USERS=dict(DBSession.query(User.username,User.password).all())
-
-
+GROUPS = {'editor': ['group:editors'],'admin':['group:admin']}
+USERS=dict(session.query(User.username,User.password))
 def groupfinder(userid, request):
     if userid in USERS:
         return GROUPS.get(userid,[])

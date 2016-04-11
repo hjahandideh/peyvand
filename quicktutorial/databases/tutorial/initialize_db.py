@@ -9,7 +9,7 @@ from pyramid.paster import (
     )
 
 from .models import (
-    Page,Nameh,User,Logi,
+    Nameh,User,
     Base,DBSession,
     )
 
@@ -32,10 +32,6 @@ def main(argv=sys.argv):
     with transaction.manager:
         user=User(name='hasan',lname='jahndideh72',tel='0937239304',email='jahadideh72@yahoo.com',username='jahandideh72',password='10772',semat='test')
         nameh=Nameh(nnameh='اداری',mnameh='مرخصی',chnameh='درخواست مرخصی از ریاست',manameh='اابباتاا',recive='jahandide',ersal="jahandideh72",tarikher="jun",mohlat="feb",jahat="eghdam",peyvast="no")
-        model = Page(title='Rootgh1', body='Roomj')
-        l=Logi(username='jahandideh72',name='hh')
 
-        DBSession.add(model)
-        DBSession.add(l)
         DBSession.add(user)
         DBSession.add(nameh)

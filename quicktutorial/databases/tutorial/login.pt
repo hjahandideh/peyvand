@@ -7,15 +7,9 @@
 
 </head>
 <body>
-<div class="container">
+<div class="col-md-12 wrapper" style="background-image:url(${request.static_url('tutorial:images/bg.jpg') });background-size:cover">
 
-
-
-    <div class="col-md-12 main">
-            <div class="row">
-
-
-                <div class="form fon" >
+                <div class="form fon" id="frmlog" >
 				<div>
                     <img src="${request.static_url('tutorial:images/peyvand.png') }"/>
 
@@ -26,16 +20,17 @@
 				<form action="${url}" method="post" class="fon">
                 <input type="hidden" name="came_from" value="${came_from}"/>
 
-               <input type="text" placeholder="نام کاربری" id="login" name="login" value="${login}"/>
+               <input type="text" placeholder="نام کاربری" id="login" name="login" value="${login}" autofocus/>
                 <br/>
 
                 <input type="password" placeholder="رمز عبور" id="password" name="password" value="${password}"/>
 <br/>
-              <input type="submit" name="form-submitted" value="Log In"/>
+              <input class="btn btn-primary" type="submit" name="form-submitted" value="ورود"/>
             </form><span tal:replace="message"></span></div>
+
             </div>
-        </div>
-        </div>
+
+
 
 
 <script href="${request.static_url('tutorial:js/bootstrap.min.js')}" type="text/javascript/javascript"></script>

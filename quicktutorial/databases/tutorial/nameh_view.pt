@@ -9,16 +9,7 @@
 <link rel="stylesheet"
           href="${request.static_url('tutorial:css/font.css') }"/>
 
-    <tal:block tal:repeat="reqt view.reqt['css']">
-        <link rel="stylesheet" type="text/css"
-              href="${request.static_url(reqt)}"/>
-    </tal:block>
-    <script src="${request.static_url('deform:static/scripts/jquery-2.0.3.min.js')}"
-        type="text/javascript"></script>
-    <tal:block tal:repeat="reqt view.reqt['js']">
-        <script src="${request.static_url(reqt)}"
-                type="text/javascript"></script>
-    </tal:block>
+
 
 </head>
 <body style="text-align:right;">
@@ -159,11 +150,18 @@
 </div>
 </div>
 <div class="row">
-<p>${structure: form}</p>
-<script type="text/javascript">
-    deform.load()
-</script>
-
+<form action="" method="post">
+<input type="text" name="nnameh" id="nnameh" placeholder="نوع نامه" value="${nnameh}">
+<input type="text" name="mnameh" id="mnameh" placeholder="موضوع نامه" value="${mnameh}">
+<input type="text" name="chnameh" id="chnameh" placeholder="چکیده نامه" value="${chnameh}">
+<input type="text" name="manameh" id="manameh" placeholder="متن نامه" value="${manameh}">
+<input type="text" name="recive" id="recive" placeholder="tal:repeat=newer newer" value="${recive}">
+<input type="text" name="tarikher" id="tarikher" placeholder="تاریخ ارسال" value="${tarikher}">
+<input type="text" name="mohlat" id="mohlat" placeholder="مهلت پیگیری" value="${mohlat}">
+<input type="text" name="jahat" id="jahat" placeholder="مورد پیگیری نامه" value="${jahat}">
+<input type="text" name="peyvast" id="peyvast" placeholder="پیوست" value="${peyvast}">
+ <input class="btn btn-primary" type="submit" name="form_submitted" value="ارسال"/>
+            </form>
 </div>
 </div>
 </div>
