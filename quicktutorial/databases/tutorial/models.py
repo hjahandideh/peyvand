@@ -1,9 +1,9 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import (
-    Column,
+    Column, Boolean,
     Integer,
-    Text, ForeignKey)
+    Text, ForeignKey, BLOB)
 from pyramid.security import (
     Allow,
     Everyone,
@@ -15,9 +15,29 @@ from zope.sqlalchemy import ZopeTransactionExtension
 DBSession = scoped_session(
     sessionmaker(extension=ZopeTransactionExtension()))
 Base = declarative_base()
+class payam(Base):
+    __tablename__='payamha'
+    id=Column(Integer,primary_key=True,autoincrement=True)
+    mapyam=Column(Text)
+    mopyam=Column(Text)
+    ersal=Column(Text,ForeignKey('user.username'))
+    recive=Column(Text,ForeignKey('user.username'))
 
+    usernam = relationship("User",foreign_keys="[payam.recive]")
+    er=relationship("User",foreign_keys="[payam.ersal]")
 
-
+class groups(Base):
+    __tablename__='grooh'
+    id=Column(Integer,primary_key=True,autoincrement=True)
+    usr=Column(Text,ForeignKey('user.username'))
+    er=relationship("User",foreign_keys="[groups.usr]")
+class moerjah(Base):
+    __tablename__='erjah'
+    mer=Column(Text,primary_key=True)
+class etela(Base):
+    __tablename__='info'
+    id=Column(Integer,primary_key=True,autoincrement=True)
+    minfo=Column(Text)
 class User(Base):
     __tablename__='user'
     name=Column(Text)
@@ -45,11 +65,13 @@ class Nameh(Base):
     ersal=Column(Text, ForeignKey('user.username'))
     tarikher=Column(Text)
     mohlat=Column(Text)
-    jahat=Column(Text)
+    jahat=Column(Text,ForeignKey('erjah.mer'))
     peyvast=Column(Text)
+    st=Column(Integer)
     usernam = relationship("User",foreign_keys="[Nameh.recive]")
     er=relationship("User",foreign_keys="[Nameh.ersal]")
-    def __init__(self,nnameh,mnameh,chnameh,manameh,recive,ersal,tarikher,mohlat,jahat,peyvast):
+    erja=relationship("moerjah",foreign_keys="[Nameh.jahat]")
+    def __init__(self,nnameh,mnameh,chnameh,manameh,recive,ersal,tarikher,mohlat,jahat,peyvast,st):
         self.nnameh=nnameh
         self.mnameh=mnameh
         self.chnameh=chnameh
@@ -60,7 +82,22 @@ class Nameh(Base):
         self.mohlat=mohlat
         self.jahat=jahat
         self.peyvast=peyvast
-
+        self.st=st
+class Image(Base):
+    __tablename__='img'
+    id=Column(Integer,primary_key=True)
+    name=Column(Text,ForeignKey('user.username'))
+    img=Column(BLOB)
+    er=relationship("User",foreign_keys="[Image.name]")
+class Paygham(Base):
+    __tablename__='payam'
+    id=Column(Integer,primary_key=True,autoincrement=True)
+    mpayam=Column(Text)
+    ersal=Column(Text,ForeignKey('user.username'))
+    usernam = relationship("User",foreign_keys="[Paygham.ersal]")
+    def __init__(self,mpayam,ersal):
+        self.mpayam=mpayam
+        self.ersal=ersal
 class RootFactory(object):
     __acl__ = [(Allow, Everyone, 'view'),
                (Allow, 'group:editors', 'edit'),(Allow,'group:admin','admin')]

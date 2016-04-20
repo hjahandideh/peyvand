@@ -17,16 +17,17 @@
                         ورود به اتوماسیون
                     </p>
                 </div>
-				<form action="${url}" method="post" class="fon">
+				<form action="${url}" method="post" id="Form" class="fon screen">
                 <input type="hidden" name="came_from" value="${came_from}"/>
 
-               <input type="text" placeholder="نام کاربری" id="login" name="login" value="${login}" autofocus/>
+               <span class="icon-user"></span><input style="text-align: right" type="text" placeholder="نام کاربری" id="login" name="login" value="${login}" autofocus/>
                 <br/>
 
-                <input type="password" placeholder="رمز عبور" id="password" name="password" value="${password}"/>
+                <span class="icon-lock"></span><input style="text-align: right" type="password" placeholder="رمز عبور" id="password" name="password" value="${password}"/>
 <br/>
               <input class="btn btn-primary" type="submit" name="form-submitted" value="ورود"/>
-            </form><span tal:replace="message"></span></div>
+            </form>
+            <span tal:replace="message"></span></div>
 
             </div>
 
@@ -34,5 +35,7 @@
 
 
 <script href="${request.static_url('tutorial:js/bootstrap.min.js')}" type="text/javascript/javascript"></script>
+<script href="${request.static_url('tutorial:js/jquery-1.12.3.min.js')}" type="text/javascript/javascript"></script>
+<script href="${request.static_url('tutorial:js/jquery.js')}" type="text/javascript/javascript"></script>
 </body>
 </html>
