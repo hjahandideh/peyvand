@@ -1,7 +1,7 @@
 from tutorial.models import User
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-some_engine = create_engine('sqlite:///tutorial.sqlite')
+some_engine = create_engine('sqlite:///peyvand.sqlite')
 Session = sessionmaker(bind=some_engine)
 session = Session()
 

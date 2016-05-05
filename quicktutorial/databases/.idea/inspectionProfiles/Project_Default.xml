@@ -1,6 +1,7 @@
 <component name="InspectionProjectProfileManager">
-  <profile version="1.0">
+  <profile version="1.0" is_locked="false">
     <option name="myName" value="Project Default" />
+    <option name="myLocal" value="true" />
     <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
@@ -22,14 +23,6 @@
       <option name="ignoredNames">
         <list>
           <option value="id" />
-        </list>
-      </option>
-    </inspection_tool>
-    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="ignoredIdentifiers">
-        <list>
-          <option value="deform.ValidationFailure" />
-          <option value="deform.Form" />
         </list>
       </option>
     </inspection_tool>

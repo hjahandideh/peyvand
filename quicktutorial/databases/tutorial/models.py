@@ -1,7 +1,7 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import (
-    Column, Boolean,
+    Column,
     Integer,
     Text, ForeignKey, BLOB)
 from pyramid.security import (
@@ -22,7 +22,6 @@ class payam(Base):
     mopyam=Column(Text)
     ersal=Column(Text,ForeignKey('user.username'))
     recive=Column(Text,ForeignKey('user.username'))
-
     usernam = relationship("User",foreign_keys="[payam.recive]")
     er=relationship("User",foreign_keys="[payam.ersal]")
 
@@ -51,6 +50,7 @@ class User(Base):
         self.name=name
         self.lname=lname
         self.tel=tel
+        self.email=email
         self.username=username
         self.password=password
         self.semat=semat
@@ -67,11 +67,11 @@ class Nameh(Base):
     mohlat=Column(Text)
     jahat=Column(Text,ForeignKey('erjah.mer'))
     peyvast=Column(Text)
-    st=Column(Integer)
+    vaseiyat=Column(Integer)
     usernam = relationship("User",foreign_keys="[Nameh.recive]")
     er=relationship("User",foreign_keys="[Nameh.ersal]")
     erja=relationship("moerjah",foreign_keys="[Nameh.jahat]")
-    def __init__(self,nnameh,mnameh,chnameh,manameh,recive,ersal,tarikher,mohlat,jahat,peyvast,st):
+    def __init__(self,nnameh,mnameh,chnameh,manameh,recive,ersal,tarikher,mohlat,jahat,peyvast,vaseiyat):
         self.nnameh=nnameh
         self.mnameh=mnameh
         self.chnameh=chnameh
@@ -82,12 +82,12 @@ class Nameh(Base):
         self.mohlat=mohlat
         self.jahat=jahat
         self.peyvast=peyvast
-        self.st=st
+        self.vaseiyat=vaseiyat
 class Image(Base):
     __tablename__='img'
     id=Column(Integer,primary_key=True)
     name=Column(Text,ForeignKey('user.username'))
-    img=Column(BLOB)
+    img=Column(Text)
     er=relationship("User",foreign_keys="[Image.name]")
 class Paygham(Base):
     __tablename__='payam'
@@ -95,6 +95,7 @@ class Paygham(Base):
     mpayam=Column(Text)
     ersal=Column(Text,ForeignKey('user.username'))
     usernam = relationship("User",foreign_keys="[Paygham.ersal]")
+
     def __init__(self,mpayam,ersal):
         self.mpayam=mpayam
         self.ersal=ersal

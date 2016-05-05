@@ -13,22 +13,43 @@
 </head>
 
 
-<body style="text-align:right;">
-<div class="row">
+<body style="text-align:right;background:#C7C0B0">
+<div class="row" style=" margin: 0 auto">
+    <div class="col-md-2" style="width: 12.5%;"><p>سیستم اتوماسیون اداری پیوند</p>
+            <div class="col-md-12">تاریخ:../../..</div>
+            <div class="col-md-12">ساعت:  :  </div></div>
+    <div class="col-md-10" style="width: 87.5%;">
+        <div class="row" style="background-image:url(${request.static_url('tutorial:images/header2.jpg') });">
+            <div class="col-md-12">
+                <div class="col-md-3"  tal:repeat="log log">${log.name} ${log.lname} :کاربر</div>
+                <div class="col-md-3"  tal:repeat="log log">${log.semat}:سمت</div>
+                <div class="col-md-3"><a tal:condition="view.logged_in is not None" href="${request.application_url}/"><p tal:repeat="log log">خروج</p></a></div>
+                <div class="col-md-3"  tal:repeat="mag mag"><img  class="imgsize" src="${request.static_url(mag.img) }"></div>
+              </div>
+
+        </div>
+    </div>
+</div>
+<div class="row" style=" margin: 0 auto">
     <div class="col-md-2" style="width: 12.5%;">
         <div class="row">
-            <p>سیستم اتوماسیون اداری پیوند</p>
-            </div>
-            <div class="row">
-            <div class="col-md-12">تاریخ:../../..</div>
-            <div class="col-md-12">ساعت:  :  </div>
+
         </div>
-        <div class="row ta">
+		<div class="row ta">
             <ul class="nav nav-pills nav-stacked">
 
 
-            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('new_nameh') }">ایجاد         <span class="glyphicon glyphicon-envelope"></span></a></li>
-            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('kartabl') }">کارتابل         <span class="glyphicon glyphicon-envelope"></span></a></li>
+            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('view') }">صفحه نخست        <span class="glyphicon glyphicon-envelope"></span></a></li>
+     
+
+        </ul>
+        </div>
+        <div class="row ta">
+            <ul class="nav nav-pills nav-stacked" >
+
+
+            <li role="presentation" ><a style="font-size: 20px;" >ایجاد نامه        <span class="glyphicon glyphicon-envelope"></span></a></li>
+            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('kartabl') }">     صتدوق دریافت   <span class="glyphicon glyphicon-envelope"></span></a></li>
             <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('ersal_nameh') }">ارسالی ها         <span class="glyphicon glyphicon-envelope"></span></a></li>
             <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('pishnevis') }">پیش نویس ها         <span class="glyphicon glyphicon-envelope"></span></a></li>
             <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('eghdam') }">در دست اقدام         <span class="glyphicon glyphicon-envelope"></span></a></li>
@@ -37,9 +58,9 @@
         </div>
         <div class="row ta">
             <ul class="nav nav-pills nav-stacked">
-                <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('ersal_payam') }">ارسال پیغام<span class="glyphicon glyphicon-envelope"></span></a></li>
+                <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('ersal_payam') }">ارسال ها<span class="glyphicon glyphicon-envelope"></span></a></li>
                 <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('recive_payam') }">پیغام دریافتی<span class="glyphicon glyphicon-envelope"></span></a></li>
-                <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('new_payam') }">ایجاد پیفام<span class="glyphicon glyphicon-envelope"></span></a></li>
+                <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('new_payam') }">ایجاد پیغام<span class="glyphicon glyphicon-envelope"></span></a></li>
 
             </ul>
         </div>
@@ -50,45 +71,72 @@
             </ul>
         </div>
         <div class="row">
-
-            <form action="" method="post" id="frmpayam" name="frmpayam">
-
-                <input type="text" name="mpayam" id="mpayam" value="${mpayam}">
-                <input type="submit" name="frm-submitted" id="frm-submitted" value="ارسال">
-            </form>
-<button onclick="do_some_ajax()">hhhhhhhhhh</button>
+                <input type="text" name="mpayam" id="mpayam" value="">
+                <input  type="button" name="frm-submitted" id="frm-submitted" value="ارسال">
+            <div  id="result"></div>
         </div>
     </div>
-    <div class="col-md-10">
-        <div class="row  ta">
-            <div class="col-md-6" style="display: inline;float: right">
-                <div tal:repeat="log log" class="row">${log.name} ${log.lname} :کاربر</div>
+    <div class="col-md-10" style="width: 87.5%; display: block">
 
-                <div class="col-md-3" style="display: inline-block" tal:repeat="log log">${log.semat}:سمت</div>
-            </div>
-            <div class="col-md-6">
-            <div class="col-md-2"></div>
-            <div class="col-md-2"></div>
-            <div class="col-md-2"><a tal:condition="view.logged_in is not None" href="${request.application_url}/"><p tal:repeat="log log">خروج</p></a></div>
-            </div>
-        </div>
 
-        <div class="row tm">
-<div class="bg-success">diofodfuopsfpp
-difg
-gdjfl
-    dfgfdg
-fg
-fgdfgd
-fg</div>
-<table><tr tal:repeat="page page"><td>${page.ersal} </td><td>  ${page.mpayam}</td></tr></table>
-        </div>
-    </div>
+        <div class="row" style="float:right">
+    <table>
+        <tr><td>اطلاعیه ها</td></tr>
+        <tr></tr>
+        <tr></tr>
+    </table>
+    <table>
+        <tr><td>نامه ها</td></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+    </table>
 </div>
+</div>
+</div>
+
+
 <script type="text/javascript" src="${request.static_url('tutorial:js/hello_ajax.js')}"></script>
 <script src="${request.static_url('tutorial:js/ajax.js') }"></script>
 <script src="${request.static_url('tutorial:js/jquery-1.12.3.min.js') }"></script>
 <script src="${request.static_url('tutorial:js/bootstrap.min.js') }"></script>
+<script>
+    $("#frm-submitted").click(function() {
+        console.log("hi")
+        var m=$("#mpayam").val()
+        $.post( "/url",{ 'mpayam': m,'frm-submitted':1}, function(data) {
+            var x = "<table>";
+            for(var i in  data['page']){
+
+                x += "<tr>";
+
+                x += "<td>"+ data['page'][i]['mpayam'] + "</td>";
+                x += "<td>"+ data['page'][i]['ersal'] + "</td>";
+                x += "</tr>";
+
+            }
+            x += "</table>";
+            $("#result").html(x);
+        })
+          .fail(function() {
+            alert( "error" );
+          })
+
+//        $.ajax({
+//        type: "POST",
+//        url: "/url",
+//        // The key needs to match your method's input parameter (case-sensitive).
+//        data: JSON.stringify({ 'mpayam': m }),
+//        contentType: "application/json; charset=utf-8",
+//        dataType: "json",
+//        success: function(data){
+//            $("#result").html(data)},
+//         failure: function(errMsg) {
+//            alert(errMsg);
+//        }
+//        });
+    });
+</script>
 </body>
 </html>
 

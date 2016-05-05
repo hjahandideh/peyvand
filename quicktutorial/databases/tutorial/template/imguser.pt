@@ -54,31 +54,21 @@
         </div>
         <div class="row">
 
-            <table>
-                 <tr tal:repeat="page page"><td>${page.ersal} ${page.mpayam}</td></tr>
-            </table>
+
         </div>
     </div>
      <div class="col-md-10">
-        <div class="row  ta">
-            <div class="col-md-6" style="display: inline;float: right">
-                <div tal:repeat="log log" class="row">${log.name} ${log.lname} :کاربر</div>
-                <div class="col-md-3" style="display: inline-block" tal:repeat="log log">${log.semat}:سمت</div>
-            </div>
-            <div class="col-md-6">
-            <div class="col-md-2"></div>
-            <div class="col-md-2"></div>
-            <div class="col-md-2"><a tal:condition="view.logged_in is not None" href="${request.application_url}/"><p tal:repeat="log log">خروج</p></a></div>
-            </div>
-        </div>
+
 
         <div class="row tm">
-            <form  method="post" enctype="multipart/form-data">
-        <input type="file" name="file_input" value="Choose image" />
+            <form action="" method="post" accept-charset="utf-8"
+      enctype="multipart/form-data">
 
+    <label for="mp3">Mp3</label>
+    <input id="mp3" name="mp3" type="file" value="" />
 
-    <p><input type="submit" name="photo.submitted" value="Save" /></p>
-    </form>
+    <input type="submit" name="frmimg" id="frmimg" value="submit" />
+</form>
         </div>
     </div>
 </div>

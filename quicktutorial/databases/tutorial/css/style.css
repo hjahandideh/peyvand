@@ -36,7 +36,6 @@ label{
 	text-align: center;
 }
 .ta{
-
     border: 1px solid #8092AF;
 }
 .am a{color:white}
@@ -46,4 +45,21 @@ label{
 	font-family: "Droid Serif";
 	color:white;
 	text-align: center;
+}
+.imgsize{
+	width: 150px;
+	height: 120px;
+	border-radius: 45px;
+	float: left;
+	
+}
+.to{
+	width: 100%;
+    border: 1px solid #8092AF;
+	display: inline-block;
+	float: right;
+
+}
+.bl{
+	display: block;
 }

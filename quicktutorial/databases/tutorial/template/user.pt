@@ -58,8 +58,17 @@ function startclock () {
             <ul class="nav nav-pills nav-stacked">
 
 
-            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('new_nameh') }">ایجاد         <span class="glyphicon glyphicon-envelope"></span></a></li>
-            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('kartabl') }">کارتابل         <span class="glyphicon glyphicon-envelope"></span></a></li>
+            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('view') }">صفحه نخست        <span class="glyphicon glyphicon-envelope"></span></a></li>
+
+
+        </ul>
+        </div>
+        <div class="row ta">
+            <ul class="nav nav-pills nav-stacked">
+
+
+            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('new_nameh') }">ایجاد نامه        <span class="glyphicon glyphicon-envelope"></span></a></li>
+            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('kartabl') }">     صتدوق دریافت   <span class="glyphicon glyphicon-envelope"></span></a></li>
             <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('ersal_nameh') }">ارسالی ها         <span class="glyphicon glyphicon-envelope"></span></a></li>
             <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('pishnevis') }">پیش نویس ها         <span class="glyphicon glyphicon-envelope"></span></a></li>
             <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('eghdam') }">در دست اقدام         <span class="glyphicon glyphicon-envelope"></span></a></li>
@@ -68,9 +77,9 @@ function startclock () {
         </div>
         <div class="row ta">
             <ul class="nav nav-pills nav-stacked">
-                <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('ersal_payam') }">ارسال پیغام<span class="glyphicon glyphicon-envelope"></span></a></li>
+                <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('ersal_payam') }">ارسال ها<span class="glyphicon glyphicon-envelope"></span></a></li>
                 <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('recive_payam') }">پیغام دریافتی<span class="glyphicon glyphicon-envelope"></span></a></li>
-                <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('new_payam') }">ایجاد پیفام<span class="glyphicon glyphicon-envelope"></span></a></li>
+                <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('new_payam') }">ایجاد پیغام<span class="glyphicon glyphicon-envelope"></span></a></li>
 
             </ul>
         </div>
@@ -82,33 +91,21 @@ function startclock () {
         </div>
         <div class="row">
 
-            <table>
-                 <tr tal:repeat="page page"><td>${page.ersal} ${page.mpayam}</td></tr>
-            </table>
+
         </div>
     </div>
      <div class="col-md-10">
-        <div class="row  ta">
-            <div class="col-md-6" style="display: inline;float: right">
-                <div tal:repeat="log log" class="row">${log.name} ${log.lname} :کاربر</div>
-                <div class="col-md-3" style="display: inline-block" tal:repeat="log log">${log.semat}:سمت</div>
-            </div>
-            <div class="col-md-6">
-            <div class="col-md-2"></div>
-            <div class="col-md-2"></div>
-            <div class="col-md-2"><a tal:condition="view.logged_in is not None" href="${request.application_url}/"><p tal:repeat="log log">خروج</p></a></div>
-            </div>
-        </div>
+
 
         <div class="row tm">
             <form action="" method="post">
-                <input type="text" name="fname" placeholder="ونام" id="fname" value="${fname}">
-                <input type="text" name="lname" placeholder="نام خانوادگی" id="lname" value="${lname}">
-                <input type="text" name="tel" placeholder="شماره تلفن" id="tel" value="${tel}">
-                <input type="text" name="email" placeholder="ایمیل" id="email" value="${email}">
-                <input type="text" name="username" placeholder="نام کاربری" id="lname" value="${username}">
-                <input type="text" name="password" placeholder="رمز عبور"id="password" value="${password}">
-                <input type="text" name="semat" placeholder="سمت "id="semat" value="${semat}">
+                <input type="text" name="fname" placeholder="ونام" id="fname" value="">
+                <input type="text" name="lname" placeholder="نام خانوادگی" id="lname" value="">
+                <input type="text" name="tel" placeholder="شماره تلفن" id="tel" value="">
+                <input type="text" name="email" placeholder="ایمیل" id="email" value="">
+                <input type="text" name="username" placeholder="نام کاربری" id="lname" value="">
+                <input type="text" name="password" placeholder="رمز عبور"id="password" value="">
+                <input type="text" name="semat" placeholder="سمت "id="semat" value="">
                 <input class="btn btn-primary" type="submit" name="form-user" value="ارسال"/>
             </form>
         </div>

@@ -23,12 +23,21 @@
             <div class="col-md-12">تاریخ:../../..</div>
             <div class="col-md-12">ساعت:  :  </div>
         </div>
+  <div class="row ta">
+            <ul class="nav nav-pills nav-stacked">
+
+
+            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('view') }">صفحه نخست        <span class="glyphicon glyphicon-envelope"></span></a></li>
+
+
+        </ul>
+        </div>
         <div class="row ta">
             <ul class="nav nav-pills nav-stacked">
 
 
-            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('new_nameh') }">ایجاد         <span class="glyphicon glyphicon-envelope"></span></a></li>
-            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('kartabl') }">کارتابل         <span class="glyphicon glyphicon-envelope"></span></a></li>
+            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('new_nameh') }">ایجاد نامه        <span class="glyphicon glyphicon-envelope"></span></a></li>
+            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('kartabl') }">     صتدوق دریافت   <span class="glyphicon glyphicon-envelope"></span></a></li>
             <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('ersal_nameh') }">ارسالی ها         <span class="glyphicon glyphicon-envelope"></span></a></li>
             <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('pishnevis') }">پیش نویس ها         <span class="glyphicon glyphicon-envelope"></span></a></li>
             <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('eghdam') }">در دست اقدام         <span class="glyphicon glyphicon-envelope"></span></a></li>
@@ -37,9 +46,9 @@
         </div>
         <div class="row ta">
             <ul class="nav nav-pills nav-stacked">
-                <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('ersal_payam') }">ارسال پیغام<span class="glyphicon glyphicon-envelope"></span></a></li>
+                <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('ersal_payam') }">ارسال ها<span class="glyphicon glyphicon-envelope"></span></a></li>
                 <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('recive_payam') }">پیغام دریافتی<span class="glyphicon glyphicon-envelope"></span></a></li>
-                <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('new_payam') }">ایجاد پیفام<span class="glyphicon glyphicon-envelope"></span></a></li>
+                <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('new_payam') }">ایجاد پیغام<span class="glyphicon glyphicon-envelope"></span></a></li>
 
             </ul>
         </div>
@@ -51,9 +60,7 @@
         </div>
         <div class="row">
 
-            <table>
-                 <tr tal:repeat="page page"><td>${page.ersal} ${page.mpayam}</td></tr>
-            </table>
+
         </div>
     </div>
     <div class="col-md-10">
