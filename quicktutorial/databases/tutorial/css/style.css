@@ -53,6 +53,17 @@ label{
 	float: left;
 	
 }
+.imgsize1{
+	width: 75px;
+	height: 60px;
+	border-radius: 25px;
+}
+.ch{
+	background: white;
+	border:solid 1px;
+	height: 350px;
+	overflow:scroll;
+}
 .to{
 	width: 100%;
     border: 1px solid #8092AF;
@@ -63,3 +74,165 @@ label{
 .bl{
 	display: block;
 }
+/*
+*
+* Appine.ir
+*
+*/
+/*custom font*/
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+html {
+	height: 100%;
+	/*Image only BG fallback*/
+
+	/*background = gradient + image pattern combo*/
+	background:white;
+}
+
+body {font-family: "Droid Naskh";
+	direction:rtl;
+
+}
+
+h1{
+	font-size:48px;
+	text-align:center;
+	line-height:60px;
+	padding-top:20px;
+	color:#fff
+}
+h1:after{
+	display:block;
+	content:'';
+	width: 50%;
+	height:1px;
+	margin:20px auto;
+	background:#ccc;
+}
+
+.appine{
+	position:absolute;bottom:0;right:0;background:#222;padding:10px;
+	text-decoration:none;color:#eee
+}
+.appine:hover{color:yellow}
+
+/*form styles*/
+#msform {
+	width: 680px;
+	height: 800px;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+	color: black;
+}
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	margin: 0 10%;
+
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+#msform input, #msform textarea {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+
+	color: #2C3E50;
+}
+/*buttons*/
+#msform .action-button {
+	background: #27AE60;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+/*headings*/
+.fs-title {
+	text-transform: uppercase;
+	color: #2C3E50;
+	margin-bottom: 10px;
+}
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+
+}
+#progressbar li {
+	list-style-type: none;
+	color: black;
+	text-transform: uppercase;
+	font-size: 13px;
+	width: 33.33%;
+	float: right;
+	position: relative;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	color: #333;
+	background: white;
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	height: 2px;
+	background: white;
+	position: absolute;
+	right: -50%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none;
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #27AE60;
+	color: white;
+}
+.tb{
+	height:40px;
+	background:#00719D;
+	text-align:center;
+
+}
+
+

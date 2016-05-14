@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>سازمان الکترونیک پیوند</title>
+    <link rel="stylesheet"
+          href="${request.static_url('tutorial:css/bootstrap-rtl.css') }"/>
+       <link rel="stylesheet"
+          href="${request.static_url('tutorial:css/bootstrap-theme.css') }"/>
+<link rel="stylesheet"
+          href="${request.static_url('tutorial:css/style.css') }"/>
+<link rel="stylesheet"href="${request.static_url('tutorial:css/font.css') }"/>
+<link rel="stylesheet"href="${request.static_url('tutorial:css/jquery-ui.min.css') }"/>
+<link rel="stylesheet"href="${request.static_url('tutorial:css/pure_rte.css.css') }"/>
+
+</head>
+
+
+<body  style="text-align:right;">
+<div class="row" style=" margin: 0 auto">
+    <div class="col-md-2" style="width: 12.5%;"><p>سیستم اتوماسیون اداری پیوند</p>
+            <div class="col-md-12">تاریخ:../../..</div>
+            <div class="col-md-12">ساعت:  :  </div></div>
+    <div class="col-md-10" style="width: 87.5%;">
+        <div class="row" style="background-image:url(${request.static_url('tutorial:images/header2.jpg') });">
+            <div class="col-md-12">
+                <div class="col-md-3"  tal:repeat="log log">کاربر:${log.name} ${log.lname} </div>
+                <div class="col-md-5"><a tal:condition="view.logged_in is not None" href="${request.application_url}/"><p tal:repeat="log log">خروج</p></a><p style="font-size:20pt">کاربر محترم به اتوماسیون اداری خوش آمدید</p></div>
+                <div class="col-md-2"  tal:repeat="log log">سمت:${log.semat}</div>
+                <div class="col-md-2"  tal:repeat="mag mag"><img  class="imgsize" src="${request.static_url(mag.img) }"></div>
+
+              </div>
+
+        </div>
+    </div>
+</div>
+<div class="row" style=" margin: 0 auto">
+    <div class="col-md-2" style="">
+        <div class="row">
+
+        </div>
+		<div class="row ta">
+            <ul class="nav nav-pills nav-stacked">
+
+
+            <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('view') }"><span class="glyphicon glyphicon-envelope"></span>صفحه نخست        </a></li>
+
+
+        </ul>
+        </div>
+        <div class="row ta">
+            <ul class="nav nav-pills nav-stacked" >
+
+
+            <li role="presentation" ><a style="font-size: 18px;" href="${request.route_url('new_nameh') }"><span class="glyphicon glyphicon-envelope"></span>ایجاد نامه        </a></li>
+            <li role="presentation" ><a  style="font-size: 18px" href="${request.route_url('kartabl') }"> <span class="glyphicon glyphicon-envelope"></span>    صتدوق دریافت  <span class="badge" tal:content="nav"></span></a></li>
+            <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('ersal_nameh') }"><span class="glyphicon glyphicon-envelope"></span>ارسالی ها         </a></li>
+            <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('pishnevis') }"><span class="glyphicon glyphicon-envelope"></span>پیش نویس ها         </a></li>
+            <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('eghdam') }"><span class="glyphicon glyphicon-envelope"></span>در دست اقدام         </a></li>
+
+        </ul>
+        </div>
+        <div class="row ta">
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('ersal_payam') }"><span class="glyphicon glyphicon-envelope"></span>ارسال ها</a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('recive_payam') }"><span class="glyphicon glyphicon-envelope"></span>پیغام دریافتی</a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('new_payam') }"><span class="glyphicon glyphicon-envelope"></span>ایجاد پیغام</a></li>
+
+            </ul>
+        </div>
+        <div class="row ta">
+             <ul class="nav nav-pills nav-stacked">
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('search') }"><span class="glyphicon glyphicon-envelope"></span>جستجو</a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('save') }"><span class="glyphicon glyphicon-save"></span>بایگانی </a></li>
+            </ul>
+        </div>
+
+    </div>
+     <div class="col-md-10">
+
+
+        <div class="row tm">
+            <form action="" method="post" accept-charset="utf-8">
+
+    <input id="etla" name="etla" type="text" value="" />
+
+    <input class="btn btn-primary" type="submit" name="frmetla" id="frmetla" value="ارسال" />
+</form>
+        </div>
+    </div>
+</div>
+
+<script src="${request.static_url('tutorial:js/bootstrap.min.js') }"></script>
+<script src="${request.static_url('tutorial:js/jquery-1.12.3.min.js') }"></script>
+<script src="${request.static_url('tutorial:js/jquery-ui.min.js') }"></script>
+<script src="${request.static_url('tutorial:js/jquery.js') }"></script>
+<script src="${request.static_url('tutorial:js/pure_rte_lite.js') }"></script>
+</body>
+</html>
+
+

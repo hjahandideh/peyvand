@@ -14,85 +14,93 @@
 
 
 <body style="text-align:right;">
-<div class="row">
-    <div class="col-md-2" style="width: 12.5%;">
-        <div class="row">
-            <p>سیستم اتوماسیون اداری پیوند</p>
-            </div>
-            <div class="row">
+<div class="row" style=" margin: 0 auto">
+    <div class="col-md-2" style="width: 12.5%;"><p>سیستم اتوماسیون اداری پیوند</p>
             <div class="col-md-12">تاریخ:../../..</div>
-            <div class="col-md-12">ساعت:  :  </div>
+            <div class="col-md-12">ساعت:  :  </div></div>
+    <div class="col-md-10" style="width: 87.5%;">
+        <div class="row" style="background-image:url(${request.static_url('tutorial:images/header2.jpg') });">
+            <div class="col-md-12">
+                <div class="col-md-3"  tal:repeat="log log">کاربر:${log.name} ${log.lname} </div>
+                <div class="col-md-5"><a tal:condition="view.logged_in is not None" href="${request.application_url}/"><p tal:repeat="log log">خروج</p></a>
+                    </div>
+                <div class="col-md-2"  tal:repeat="log log">سمت:${log.semat}</div>
+                <div class="col-md-2"  tal:repeat="mag mag"><img  class="imgsize" src="${request.static_url(mag.img) }"></div>
+
+              </div>
+
         </div>
-        <div class="row ta">
+    </div>
+</div>
+<div class="row" style=" margin: 0 auto">
+    <div class="col-md-2" style="">
+        <div class="row">
+
+        </div>
+		<div class="row ta">
             <ul class="nav nav-pills nav-stacked">
 
 
-            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('view') }">صفحه نخست        <span class="glyphicon glyphicon-envelope"></span></a></li>
+            <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('view') }"><span class="glyphicon glyphicon-envelope"></span>صفحه نخست        </a></li>
 
 
         </ul>
         </div>
         <div class="row ta">
-            <ul class="nav nav-pills nav-stacked">
+            <ul class="nav nav-pills nav-stacked" >
 
 
-            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('new_nameh') }">ایجاد نامه        <span class="glyphicon glyphicon-envelope"></span></a></li>
-            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('kartabl') }">     صتدوق دریافت   <span class="glyphicon glyphicon-envelope"></span></a></li>
-            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('ersal_nameh') }">ارسالی ها         <span class="glyphicon glyphicon-envelope"></span></a></li>
-            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('pishnevis') }">پیش نویس ها         <span class="glyphicon glyphicon-envelope"></span></a></li>
-            <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('eghdam') }">در دست اقدام         <span class="glyphicon glyphicon-envelope"></span></a></li>
+            <li role="presentation" ><a style="font-size: 18px;" href="${request.route_url('new_nameh') }"><span class="glyphicon glyphicon-envelope"></span>ایجاد نامه        </a></li>
+            <li role="presentation" ><a  style="font-size: 18px" href="${request.route_url('kartabl') }"> <span class="glyphicon glyphicon-envelope"></span>    صتدوق دریافت  <span class="badge" tal:content="nav"></span></a></li>
+            <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('ersal_nameh') }"><span class="glyphicon glyphicon-envelope"></span>ارسالی ها         </a></li>
+            <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('pishnevis') }"><span class="glyphicon glyphicon-envelope"></span>پیش نویس ها         </a></li>
+            <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('eghdam') }"><span class="glyphicon glyphicon-envelope"></span>در دست اقدام         </a></li>
 
         </ul>
         </div>
         <div class="row ta">
             <ul class="nav nav-pills nav-stacked">
-                <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('ersal_payam') }">ارسال ها<span class="glyphicon glyphicon-envelope"></span></a></li>
-                <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('recive_payam') }">پیغام دریافتی<span class="glyphicon glyphicon-envelope"></span></a></li>
-                <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('new_payam') }">ایجاد پیغام<span class="glyphicon glyphicon-envelope"></span></a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('ersal_payam') }"><span class="glyphicon glyphicon-envelope"></span>ارسال ها</a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('recive_payam') }"><span class="glyphicon glyphicon-envelope"></span>پیغام دریافتی</a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('new_payam') }"><span class="glyphicon glyphicon-envelope"></span>ایجاد پیغام</a></li>
 
             </ul>
         </div>
         <div class="row ta">
              <ul class="nav nav-pills nav-stacked">
-                <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('search') }">جستجو<span class="glyphicon glyphicon-envelope"></span></a></li>
-                <li role="presentation" ><a style="font-size: 20px" href="${request.route_url('save') }">بایگانی <span class="glyphicon glyphicon-envelope"></span></a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('search') }"><span class="glyphicon glyphicon-envelope"></span>جستجو</a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('save') }"><span class="glyphicon glyphicon-save"></span>بایگانی </a></li>
             </ul>
         </div>
-        <div class="row">
 
-        </div>
     </div>
    <div class="col-md-10">
-        <div class="row  ta">
-            <div class="col-md-6" style="display: inline;float: right">
-                <div tal:repeat="log log" class="row">${log.name} ${log.lname} :کاربر</div>
-                <div class="col-md-3" style="display: inline-block" tal:repeat="log log">${log.semat}:سمت</div>
-            </div>
-            <div class="col-md-6">
-            <div class="col-md-2"></div>
-            <div class="col-md-2"></div>
-            <div class="col-md-2"><a tal:condition="view.logged_in is not None" href="${request.application_url}/"><p tal:repeat="log log">خروج</p></a></div>
-            </div>
-        </div>
+
 
         <div class="row tm">
              <table class="table">
-            <tr>
-
+            <tr >
+                <td>شماره نامه</td>
+                <td>موضوع نامه</td>
                 <td>تاریخ ارسال</td>
                 <td>مهلت</td>
-                <td>موضوع نامه</td>
-                <td>شماره نامه</td>
-
+                <td>
+                    شرح ارجاع
+                </td>
 
             </tr>
-            <tr tal:repeat="usr usr">
-
-
+           <tr tal:repeat="usr usr">
+               <td>${usr.id}</td>
+                <td>${usr.mnameh}</td>
                 <td>${usr.tarikher}</td>
                 <td>${usr.mohlat}</td>
-                <td>${usr.mnameh}</td>
-                <td>${usr.id}</td>
+               <td>${usr.jahat}</td>
+                <td><a href="${request.route_url('view_nameh', id=usr.id)}">
+                    مشاهده
+                </a></td>
+                <td><a href="${request.route_url('edit_nameh', id=usr.id)}">
+                    ویرایش
+                </a></td>
             </tr>
 
         </table>

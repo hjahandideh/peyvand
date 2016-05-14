@@ -67,7 +67,7 @@ class Nameh(Base):
     mohlat=Column(Text)
     jahat=Column(Text,ForeignKey('erjah.mer'))
     peyvast=Column(Text)
-    vaseiyat=Column(Integer)
+    vaseiyat=Column(Text)
     usernam = relationship("User",foreign_keys="[Nameh.recive]")
     er=relationship("User",foreign_keys="[Nameh.ersal]")
     erja=relationship("moerjah",foreign_keys="[Nameh.jahat]")
@@ -85,20 +85,22 @@ class Nameh(Base):
         self.vaseiyat=vaseiyat
 class Image(Base):
     __tablename__='img'
-    id=Column(Integer,primary_key=True)
     name=Column(Text,ForeignKey('user.username'))
-    img=Column(Text)
+    img=Column(Text,primary_key=True)
     er=relationship("User",foreign_keys="[Image.name]")
+
+
 class Paygham(Base):
     __tablename__='payam'
     id=Column(Integer,primary_key=True,autoincrement=True)
     mpayam=Column(Text)
     ersal=Column(Text,ForeignKey('user.username'))
+    img=Column(Text)
     usernam = relationship("User",foreign_keys="[Paygham.ersal]")
-
-    def __init__(self,mpayam,ersal):
+    def __init__(self,mpayam,ersal,img):
         self.mpayam=mpayam
         self.ersal=ersal
+        self.img=img
 class RootFactory(object):
     __acl__ = [(Allow, Everyone, 'view'),
                (Allow, 'group:editors', 'edit'),(Allow,'group:admin','admin')]

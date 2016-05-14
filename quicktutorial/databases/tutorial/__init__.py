@@ -1,5 +1,5 @@
 from sqlalchemy import engine_from_config
-from tutorial.security import groupfinder
+from .security import groupfinder
 from .models import DBSession, Base,User
 from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
@@ -27,15 +27,16 @@ def main(global_config, **settings):
     config.add_route('view','/username')
     config.add_route('logout','/logout')
     config.add_route('user','/user')
-
+    config.add_route('st','/st')
     config.add_route('new_payam','/npayam')
     config.add_route('ersal_payam','/epayam')
     config.add_route('recive_payam','/rpayam')
     config.add_route('new_nameh','/n')
     config.add_route('jquery','/url')
     config.add_route('ersal_nameh','/ersali')
-    config.add_route('edit_nameh','/{id}/editn')
+    config.add_route('edit_nameh','/{id}/edit')
     config.add_route('view_nameh','/view/{id}')
+    config.add_route('view_namehu','/viewu/{id}')
     config.add_route('kartabl','/nameh')
     config.add_route('pishnevis','/pishnevis')
     config.add_route('eghdam','/eghdam')
