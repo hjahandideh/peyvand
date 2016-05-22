@@ -75,7 +75,7 @@
     </div>
     <div class="col-md-10">
         <div class="col-md-2"></div>
-        <div  class="col-md-8" style="width:880px;height:1024px;background-image:url(${request.static_url('tutorial:images/88.jpg') });"  ><div tal:repeat="page page" style="padding-top: 250px; padding-right:200px;">${page.manameh}</div>
+        <div  class="col-md-8" style="width:880px;height:1024px;background-image:url(${request.static_url('tutorial:images/88.jpg') });"  ><div tal:repeat="page page" style="padding-top: 250px; padding-right:200px;">${structure:page.manameh}</div>
 
         </div>
         <div class="col-md-2"></div>

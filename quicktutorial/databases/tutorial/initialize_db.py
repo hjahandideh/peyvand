@@ -1,16 +1,17 @@
 import os
 import sys
-import transaction
 
+import transaction
 from sqlalchemy import engine_from_config
 from pyramid.paster import (
     get_appsettings,
     setup_logging,
     )
+from sqlalchemy.exc import IntegrityError
 
 from tutorial.models import (
 
-    Base,DBSession,Paygham,payam,groups,moerjah,Image,Nameh,User,etela
+    Base,Session,User,Groups
     )
 
 
@@ -27,20 +28,18 @@ def main(argv=sys.argv):
     setup_logging(config_uri)
     settings = get_appsettings(config_uri)
     engine = engine_from_config(settings, 'sqlalchemy.')
-    DBSession.configure(bind=engine)
+    Session.configure(bind=engine)
     Base.metadata.create_all(engine)
-    with transaction.manager:
-        user=User(name='mohsen',lname='jahndideho',tel='0937239304',email='jahadideh72@yahoo.com',username='jahfdfufddf',password='10772',semat='test')
-        nameh=Nameh(nnameh='اداری',mnameh='مرخصی',chnameh='درخواست مرخصی از ریاست',manameh='اابباتاا',recive='jh',ersal="jahandide",tarikher="jun",mohlat="feb",jahat="eghdam",peyvast="no",vaseiyat="T")
-        p=Paygham(mpayam="hello",ersal="jahandide",img="tutorial\images\jahandide.jpg")
-        pa=payam(mapyam="hello",mopyam="jkjkjk",ersal='jahandide',recive='jahandideh')
-        g=groups(usr="jahandideh")
-        e=etela(minfo="hihjgkdsfukfspffsdtffdkjlkl")
-        erj=moerjah(mer="edgsaaffuuygff'isfdjdf")
-        DBSession.add(pa)
-        DBSession.add(g)
-        DBSession.add(e)
-        DBSession.add(erj)
-        DBSession.add(p)
-        DBSession.add(user)
-        DBSession.add(nameh)
+    try:
+        session = Session()
+        user1 = User('as','sasas','564545','deewe','genericuser', 'basic123','sd')
+        group1 = Groups('basic')
+        group2 = Groups('secured')
+        session.add(group1)
+        session.add(group2)
+        user1.mygroups.append(group1)
+        session.add(user1)
+        transaction.commit()
+    except IntegrityError:
+        pass
+

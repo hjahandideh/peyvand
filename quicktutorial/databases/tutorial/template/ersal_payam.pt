@@ -80,14 +80,15 @@
         <div class="row tm" >
              <table class="table">
                 <tr>
-                    <td>متن پیام</td>
                     <td>موضوع پیام</td>
                     <td>ارسال به</td>
                 </tr>
                 <tr tal:repeat="dpayam dpayam">
-                    <td>${dpayam.mapyam}</td>
                     <td>${dpayam.mopyam}</td>
                     <td>${dpayam.recive}</td>
+                    <td><a href="${request.route_url('viewu_payam', id=dpayam.id)}">
+                    مشاهده
+                </a></td>
                 </tr>
             </table>
 

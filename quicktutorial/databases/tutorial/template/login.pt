@@ -17,8 +17,8 @@
                         ورود به اتوماسیون
                     </p>
                 </div>
-				<form action="${url}" method="post" id="Form" class="fon screen">
-                <input type="hidden" name="came_from" value="${came_from}"/>
+				<form action="" method="post" id="Form" class="fon screen">
+                <input type="hidden" name="came_from" value=""/>
 
                <span class="icon-user"></span><input style="text-align: right" type="text" placeholder="نام کاربری" id="login" name="login" value="${login}" autofocus/>
                 <br/>

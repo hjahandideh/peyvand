@@ -1,30 +1,37 @@
-from sqlalchemy import engine_from_config
-from .security import groupfinder
-from .models import DBSession, Base,User
-from pyramid.authentication import AuthTktAuthenticationPolicy
-from pyramid.authorization import ACLAuthorizationPolicy
-from pyramid.config import Configurator
+from .models import Session, Base,User
 from pyramid.session import SignedCookieSessionFactory
 my_session_factory = SignedCookieSessionFactory('itsaseekreet')
+from pyramid.config import Configurator
+import sqlalchemy
+from pyramid.authentication import AuthTktAuthenticationPolicy
+from pyramid.authorization import ACLAuthorizationPolicy
+
+from .models import Base, Session
+from .models import groupfinder, RootFactory
+
+
 def main(global_config, **settings):
-    config = Configurator(settings=settings,
-                          root_factory='tutorial.models.RootFactory')
-    config.set_session_factory(my_session_factory)
+    # Configure our authorization policy
+    authentication = AuthTktAuthenticationPolicy(settings['session.secret'],
+                                                 callback=groupfinder,hashalg='sha512')
+    authorization= ACLAuthorizationPolicy()
+
+    # Create the Pyramid Configurator.
+    config = Configurator(settings=settings, root_factory=RootFactory,
+                          authentication_policy=authentication,
+                          authorization_policy=authorization)
+
     config.include('pyramid_chameleon')
-    authn_policy = AuthTktAuthenticationPolicy(
-        settings['tutorial.secret'],callback=groupfinder,
-        hashalg='sha512')
 
-    authz_policy = ACLAuthorizationPolicy()
-    config.set_authentication_policy(authn_policy)
-    config.set_authorization_policy(authz_policy)
-
-    engine = engine_from_config(settings, 'sqlalchemy.')
-    DBSession.configure(bind=engine)
+    # Initialize database
+    engine = sqlalchemy.engine_from_config(settings, prefix="sqlalchemy.")
+    Session.configure(bind=engine)
     Base.metadata.bind = engine
+
 
     config.add_route('login','/')
     config.add_route('view','/username')
+    config.add_route('modir','/modirusername')
     config.add_route('logout','/logout')
     config.add_route('user','/user')
     config.add_route('st','/st')
@@ -37,6 +44,8 @@ def main(global_config, **settings):
     config.add_route('edit_nameh','/{id}/edit')
     config.add_route('view_nameh','/view/{id}')
     config.add_route('view_namehu','/viewu/{id}')
+    config.add_route('view_payam','/viewpayam/{id}')
+    config.add_route('viewu_payam','/viewpayamu/{id}')
     config.add_route('kartabl','/nameh')
     config.add_route('pishnevis','/pishnevis')
     config.add_route('eghdam','/eghdam')
@@ -50,3 +59,9 @@ def main(global_config, **settings):
     config.add_static_view(name='template',path='tutorial:template')
     config.scan('.views')
     return config.make_wsgi_app()
+if __name__ == "__main__":
+    from wsgiref.simple_server import make_server
+    from pyramid.paster import get_appsettings
+    settings = get_appsettings('development.ini')
+    server = make_server('0.0.0.0', 5432, main({}, **settings))
+    server.serve_forever()
