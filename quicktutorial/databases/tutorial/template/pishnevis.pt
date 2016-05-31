@@ -47,29 +47,22 @@
         </ul>
         </div>
         <div class="row ta">
-            <ul class="nav nav-pills nav-stacked" >
-
-
-            <li role="presentation" ><a style="font-size: 18px;" href="${request.route_url('new_nameh') }"><span class="glyphicon glyphicon-envelope"></span>ایجاد نامه        </a></li>
-            <li role="presentation" ><a  style="font-size: 18px" href="${request.route_url('kartabl') }"> <span class="glyphicon glyphicon-envelope"></span>    صتدوق دریافت  <span class="badge" tal:content="nav"></span></a></li>
-            <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('ersal_nameh') }"><span class="glyphicon glyphicon-envelope"></span>ارسالی ها         </a></li>
-            <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('pishnevis') }"><span class="glyphicon glyphicon-envelope"></span>پیش نویس ها         </a></li>
-            <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('eghdam') }"><span class="glyphicon glyphicon-envelope"></span>در دست اقدام         </a></li>
+        <div class="tb">نامه</div>
+                <li role="presentation" ><a style="font-size: 18px;" href="${request.route_url('new_nameh') }"><span class="glyphicon glyphicon-envelope"></span>ایجاد نامه        </a></li>
+                <li role="presentation" ><a  style="font-size: 18px" href="${request.route_url('kartabl') }"> <span class="glyphicon glyphicon-envelope"></span>    صتدوق دریافت  <span class="badge" tal:content="nav"></span></a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('ersal_nameh') }"><span class="glyphicon glyphicon-envelope"></span>ارسالی ها         </a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('pishnevis') }"><span class="glyphicon glyphicon-envelope"></span>پیش نویس ها         </a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('delet_nameh') }"><span class="glyphicon glyphicon-envelope"></span>حذف شده ها         </a></li>
 
         </ul>
         </div>
         <div class="row ta">
             <ul class="nav nav-pills nav-stacked">
+                <div class="tb">پیغام</div>
                 <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('ersal_payam') }"><span class="glyphicon glyphicon-envelope"></span>ارسال ها</a></li>
-                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('recive_payam') }"><span class="glyphicon glyphicon-envelope"></span>پیغام دریافتی</a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('recive_payam') }"><span class="glyphicon glyphicon-envelope"></span>پیغام دریافتی</a><span class="badge"  tal:content="payamr"></span></li>
                 <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('new_payam') }"><span class="glyphicon glyphicon-envelope"></span>ایجاد پیغام</a></li>
 
-            </ul>
-        </div>
-        <div class="row ta">
-             <ul class="nav nav-pills nav-stacked">
-                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('search') }"><span class="glyphicon glyphicon-envelope"></span>جستجو</a></li>
-                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('save') }"><span class="glyphicon glyphicon-save"></span>بایگانی </a></li>
             </ul>
         </div>
 
@@ -95,7 +88,7 @@
                 <td>${usr.tarikher}</td>
                 <td>${usr.mohlat}</td>
                <td>${usr.jahat}</td>
-                <td><a href="${request.route_url('view_nameh', id=usr.id)}">
+                <td><a href="${request.route_url('view_namehu', id=usr.id)}">
                     مشاهده
                 </a></td>
                 <td><a href="${request.route_url('edit_nameh', id=usr.id)}">

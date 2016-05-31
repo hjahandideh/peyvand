@@ -85,7 +85,6 @@ function startclock () {
             <li role="presentation" ><a  style="font-size: 18px" href="${request.route_url('kartabl') }"> <span class="glyphicon glyphicon-envelope"></span>    صتدوق دریافت  <span class="badge" tal:content="nav"></span></a></li>
             <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('ersal_nameh') }"><span class="glyphicon glyphicon-envelope"></span>ارسالی ها         </a></li>
             <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('pishnevis') }"><span class="glyphicon glyphicon-envelope"></span>پیش نویس ها         </a></li>
-            <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('eghdam') }"><span class="glyphicon glyphicon-envelope"></span>در دست اقدام         </a></li>
 
         </ul>
         </div>
@@ -97,26 +96,21 @@ function startclock () {
 
             </ul>
         </div>
-        <div class="row ta">
-             <ul class="nav nav-pills nav-stacked">
-                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('search') }"><span class="glyphicon glyphicon-envelope"></span>جستجو</a></li>
-                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('save') }"><span class="glyphicon glyphicon-save"></span>بایگانی </a></li>
-            </ul>
-        </div>
+
 
     </div>
      <div class="col-md-10">
 
 
         <div class="row tm">
-            <form action="" method="post">
-                <input type="text" name="fname" placeholder="ونام" id="fname" value="">
-                <input type="text" name="lname" placeholder="نام خانوادگی" id="lname" value="">
-                <input type="text" name="tel" placeholder="شماره تلفن" id="tel" value="">
-                <input type="text" name="email" placeholder="ایمیل" id="email" value="">
-                <input type="text" name="username" placeholder="نام کاربری" id="lname" value="">
-                <input type="text" name="password" placeholder="رمز عبور"id="password" value="">
-                <input type="text" name="semat" placeholder="سمت "id="semat" value="">
+            <form action="" class="fon" method="post">
+                <input type="text" class="form-control" name="fname" placeholder="ونام" id="fname" value="">
+                <input type="text" class="form-control"  name="lname" placeholder="نام خانوادگی" id="lname" value="">
+                <input type="text" class="form-control" name="tel" placeholder="شماره تلفن" id="tel" value="">
+                <input type="text" class="form-control" name="email" placeholder="ایمیل" id="email" value="">
+                <input type="text" class="form-control" name="username" placeholder="نام کاربری" id="lname" value="">
+                <input type="text" class="form-control" name="password" placeholder="رمز عبور"id="password" value="">
+                <input type="text" class="form-control" name="semat" placeholder="سمت "id="semat" value="">
                 <input class="btn btn-primary" type="submit" name="form-user" value="ارسال"/>
             </form>
         </div>

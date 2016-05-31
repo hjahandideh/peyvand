@@ -71,69 +71,53 @@
 
         <div class="row ta">
              <ul class="nav nav-pills nav-stacked">
-                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('etla') }"><span class="glyphicon glyphicon-envelope"></span>ثبت اطلاعیه</a></li>
-                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('user') }"><span class="glyphicon glyphicon-save"></span>مدیریت کاربران </a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('search') }"><span class="glyphicon glyphicon-envelope"></span>ثبت اطلاعیه</a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('save') }"><span class="glyphicon glyphicon-save"></span>مدیریت کاربران </a></li>
             </ul>
         </div>
 
     </div>
-    <div class="col-md-10" style="display: block">
+    <div class="col-md-10">
 
-        <div class="row" style="float:right;width:1470px;">
 
-    <table class="table">
-        <tr class="tb"><td>خلاصه آماری </td></tr>
-        <tr><td>نامه های خوانده نشده<span class="badge"  tal:content="nav"></span></td></tr>
-        <tr><td> نامه های دریافتی<span class="badge"  tal:content="namehr"></span></td></tr>
-        <tr><td>نامه های ارسال شده<span class="badge"  tal:content="namehe"></span></td></tr>
-        <tr><td>نامه های ارسال شده<span class="badge"  tal:content="namehe"></span></td></tr>
+        <div class="row tm">
 
-    </table>
-</div>
-<div class="row" style="float:right;width:1470px;">
-            <table class="table"><tr class="tb"><td>گفتگو با کاربران</td></tr></table>
-            <div  id="result" class="ch">
+            <input tal:repeat="usr usr" type="hidden" id="res1" value=${usr.id}>
+         <table class="table" style="border:solid 1px">
+            <tr >
+                <td>شماره نامه</td>
+                <td>موضوع نامه</td>
+                <td>تاریخ ارسال</td>
+                <td>مهلت</td>
+                <td>ارسال کننده</td>
+                <td>
+                    شرح ارجاع
+                </td>
 
-            </div>
-            <div class="col-md-8">
-            <input class="form-control" style="background:#c5c5c5" placeholder="پیام" type="text" name="mpayam" id="mpayam" value=""></div>
-            <input type="hidden" tal:repeat="log log" name="ersal" id="ersal" value="${log.username}">
+            </tr>
+           <tr tal:repeat="usr usr">
+               <td>${usr.id}</td>
+                <td>${usr.mnameh}</td>
+                <td>${usr.tarikher}</td>
+                <td>${usr.mohlat}</td>
+                <td>${usr.ersal}</td>
+               <td>${usr.jahat}</td>
 
-            <div class="col-md-4"><input  class="btn btn-primary" type="button" name="frm-submitted" id="frm-submitted" value="ارسال"></div>
+               <td><a href="${request.route_url('view_nameh', id=usr.id)}">
+                   مشاهده
+               </a></td>
+               <td><a href="${request.route_url('view_nameh', id=usr.id)}">
+                   تایید
+               </a></td>
+           </tr>
+        </table>
+
         </div>
+    </div>
 </div>
-</div>
-
-
-
-<script src="${request.static_url('tutorial:js/jquery-1.12.3.min.js') }"></script>
 <script src="${request.static_url('tutorial:js/bootstrap.min.js') }"></script>
-<script>
-    $("#frm-submitted").click(function() {
-        var m=$("#mpayam").val()
-        var n=$("#ersal").val()
-        $.post( "/murl",{ 'mpayam': m,'ersal':n,'frm-submitted':1}, function(data) {
-            var x = "";
-            for(var j in  data['page']){
-
-                x += "<div class='col-md-2' >"+data['page'][j]['img']+"</div>";
-
-                x += "<div class='col-md-10' style='height:60px;'>"+ data['page'][j]['mpayam'] + "</div>";
 
 
-
-
-            }
-
-            $("#result").html(x);
-        })
-          .fail(function() {
-            alert( "error" );
-          })
-
-
-    });
-</script>
 </body>
 </html>
 

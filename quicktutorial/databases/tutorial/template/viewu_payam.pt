@@ -76,7 +76,7 @@
     <div class="col-md-10">
         <div class="col-md-2"></div>
         <div  class="col-md-8" style="border: solid 1px;"  >
-            <div tal:repeat="page page" >${page.mopyam}</div>
+            <div tal:repeat="page page" style="border:solid 1px;">${page.mopyam}</div>
 
             <div tal:repeat="page page" >${structure:page.mapyam}</div>
 

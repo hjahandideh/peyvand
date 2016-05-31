@@ -21,7 +21,7 @@
     <div class="col-md-10" style="width: 87.5%;">
         <div class="row" style="background-image:url(${request.static_url('tutorial:images/header2.jpg') });">
             <div class="col-md-12">
-                <div class="col-md-3"  tal:repeat="log log">کاربر:${log.name} ${log.lname} </div>
+                <div class="col-md-3"  tal:repeat="log log">کاربر:${log.name} ${log.lname}</div>
                 <div class="col-md-5"><a tal:condition="view.logged_in is not None" href="${request.application_url}/"><p tal:repeat="log log">خروج</p></a><p style="font-size:20pt">کاربر محترم به اتوماسیون اداری خوش آمدید</p></div>
                 <div class="col-md-2"  tal:repeat="log log">سمت:${log.semat}</div>
                 <div class="col-md-2"  tal:repeat="mag mag"><img  class="imgsize" src="${request.static_url(mag.img) }"></div>
@@ -47,30 +47,25 @@
         </div>
         <div class="row ta">
             <ul class="nav nav-pills nav-stacked" >
-
-
-            <li role="presentation" ><a style="font-size: 18px;" href="${request.route_url('new_nameh') }"><span class="glyphicon glyphicon-envelope"></span>ایجاد نامه        </a></li>
-            <li role="presentation" ><a  style="font-size: 18px" href="${request.route_url('kartabl') }"> <span class="glyphicon glyphicon-envelope"></span>    صتدوق دریافت  <span class="badge" tal:content="nav"></span></a></li>
-            <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('ersal_nameh') }"><span class="glyphicon glyphicon-envelope"></span>ارسالی ها         </a></li>
-            <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('pishnevis') }"><span class="glyphicon glyphicon-envelope"></span>پیش نویس ها         </a></li>
-            <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('eghdam') }"><span class="glyphicon glyphicon-envelope"></span>در دست اقدام         </a></li>
+                <div class="tb">نامه</div>
+                <li role="presentation" ><a style="font-size: 18px;" href="${request.route_url('new_nameh') }"><span class="glyphicon glyphicon-envelope"></span>ایجاد نامه        </a></li>
+                <li role="presentation" ><a  style="font-size: 18px" href="${request.route_url('kartabl') }"> <span class="glyphicon glyphicon-envelope"></span>    صتدوق دریافت  <span class="badge" tal:content="nav"></span></a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('ersal_nameh') }"><span class="glyphicon glyphicon-envelope"></span>ارسالی ها         </a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('pishnevis') }"><span class="glyphicon glyphicon-envelope"></span>پیش نویس ها         </a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('delet_nameh') }"><span class="glyphicon glyphicon-envelope"></span>حذف شده ها         </a></li>
 
         </ul>
         </div>
         <div class="row ta">
             <ul class="nav nav-pills nav-stacked">
+                <div class="tb">پیغام</div>
                 <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('ersal_payam') }"><span class="glyphicon glyphicon-envelope"></span>ارسال ها</a></li>
-                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('recive_payam') }"><span class="glyphicon glyphicon-envelope"></span>پیغام دریافتی</a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('recive_payam') }"><span class="glyphicon glyphicon-envelope"></span>پیغام دریافتی<span class="badge"  tal:content="payamr"></span></a></li>
                 <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('new_payam') }"><span class="glyphicon glyphicon-envelope"></span>ایجاد پیغام</a></li>
 
             </ul>
         </div>
-        <div class="row ta">
-             <ul class="nav nav-pills nav-stacked">
-                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('search') }"><span class="glyphicon glyphicon-envelope"></span>جستجو</a></li>
-                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('save') }"><span class="glyphicon glyphicon-save"></span>بایگانی </a></li>
-            </ul>
-        </div>
+
 
     </div>
     <div class="col-md-10" style="display: block">
@@ -78,15 +73,19 @@
         <div class="row" style="float:right;width:1470px;">
     <table class="table">
         <tr class="tb"><td>اطلاعیه ها</td></tr>
-        <tr tal:repeat="et et"><td>${et.minfo}</td></tr>
+        <tr tal:repeat="et et"><td>${et.etla}</td></tr>
     </table>
     <table class="table">
-        <tr class="tb"><td>خلاصه آماری </td></tr>
+          <tr class="tb"><td>خلاصه آماری </td></tr>
+    </table>
+    <table class="table">
         <tr><td>نامه های خوانده نشده<span class="badge"  tal:content="nav"></span></td></tr>
         <tr><td> نامه های دریافتی<span class="badge"  tal:content="namehr"></span></td></tr>
         <tr><td>نامه های ارسال شده<span class="badge"  tal:content="namehe"></span></td></tr>
-       
+        <tr><td>پیش نویس ها   <span class="badge"  tal:content="namehe"></span></td></tr>
+
     </table>
+
 </div>
 <div class="row" style="float:right;width:1470px;">
             <table class="table"><tr class="tb"><td>گفتگو با کاربران</td></tr></table>
@@ -94,7 +93,9 @@
 
             </div>
             <div class="col-md-8">
-            <input class="form-control" style="background:#c5c5c5" placeholder="پیام" type="text" name="mpayam" id="mpayam" value=""></div>
+            <input class="form-control" style="background:#c5c5c5" placeholder="پیام" type="text" name="mpayam" id="mpayam" value="">
+            <input type="hidden" tal:repeat="log log" name="ersal" id="ersal" value="${log.username}">
+            </div>
             <div class="col-md-4"><input  class="btn btn-primary" type="button" name="frm-submitted" id="frm-submitted" value="ارسال"></div>
         </div>
 </div>
@@ -107,7 +108,9 @@
 <script>
     $("#frm-submitted").click(function() {
         var m=$("#mpayam").val()
-        $.post( "/url",{ 'mpayam': m,'frm-submitted':1}, function(data) {
+        var n=$("#ersal").val()
+
+        $.post( "/url",{ 'mpayam': m,'ersal':n,'frm-submitted':1}, function(data) {
             var x = "";
             for(var j in  data['page']){
 

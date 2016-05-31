@@ -50,7 +50,8 @@ class moerjah(Base):
 class etela(Base):
     __tablename__='info'
     id=Column(Integer,primary_key=True,autoincrement=True)
-    minfo=Column(Text)
+    title=Column(Text)
+    etla=Column(Text)
     created_date = Column(DateTime, default=datetime.datetime.utcnow)
 class Nameh(Base):
     __tablename__='nameh'
@@ -63,13 +64,15 @@ class Nameh(Base):
     ersal=Column(Text, ForeignKey('users.username'))
     tarikher=Column(Text)
     mohlat=Column(Text)
+    emza=Column(Text)
     jahat=Column(Text,ForeignKey('erjah.mer'))
     peyvast=Column(Text)
     vaseiyat=Column(Text)
     usernam = relationship("User",foreign_keys="[Nameh.recive]")
     er=relationship("User",foreign_keys="[Nameh.ersal]")
     erja=relationship("moerjah",foreign_keys="[Nameh.jahat]")
-    def __init__(self,nnameh,mnameh,chnameh,manameh,recive,ersal,tarikher,mohlat,jahat,peyvast,vaseiyat):
+    def __init__(self,id,nnameh,mnameh,chnameh,manameh,recive,ersal,tarikher,mohlat,emza,jahat,peyvast,vaseiyat):
+        self.id=id
         self.nnameh=nnameh
         self.mnameh=mnameh
         self.chnameh=chnameh
@@ -78,14 +81,51 @@ class Nameh(Base):
         self.ersal=ersal
         self.tarikher=tarikher
         self.mohlat=mohlat
+        self.emza=emza
         self.jahat=jahat
         self.peyvast=peyvast
         self.vaseiyat=vaseiyat
+class Delet_Nameh(Base):
+    __tablename__='delet_nameh'
+    id=Column(Integer,primary_key=True,autoincrement=True)
+    nnameh=Column(Text)
+    mnameh=Column(Text)
+    chnameh=Column(Text)
+    manameh=Column(Text)
+    ersal=Column(Text, ForeignKey('users.username'))
+    tarikher=Column(Text)
+    mohlat=Column(Text)
+    emza=Column(Text)
+    jahat=Column(Text,ForeignKey('erjah.mer'))
+    peyvast=Column(Text)
+    vaseiyat=Column(Text)
+    er=relationship("User",foreign_keys="[Delet_Nameh.ersal]")
+    erja=relationship("moerjah",foreign_keys="[Delet_Nameh.jahat]")
+    def __init__(self,nnameh,mnameh,chnameh,manameh,recive,ersal,tarikher,mohlat,emza,jahat,peyvast,vaseiyat):
+        self.nnameh=nnameh
+        self.mnameh=mnameh
+        self.chnameh=chnameh
+        self.manameh=manameh
+        self.recive=recive
+        self.ersal=ersal
+        self.tarikher=tarikher
+        self.mohlat=mohlat
+        self.emza=emza
+        self.jahat=jahat
+        self.peyvast=peyvast
+        self.vaseiyat=vaseiyat
+class Vorood(Base):
+    __tablename__='vorood'
+    id=Column(Integer,primary_key=True,autoincrement=True)
+    dat=Column(DateTime)
+    vorod=Column(Text,ForeignKey('users.username'))
+    er=relationship("User",foreign_keys="[Vorood.vorod]")
 class Image(Base):
     __tablename__='img'
     name=Column(Text,ForeignKey('users.username'))
     img=Column(Text,primary_key=True)
     er=relationship("User",foreign_keys="[Image.name]")
+
 
 
 class Paygham(Base):
@@ -94,13 +134,13 @@ class Paygham(Base):
     mpayam=Column(Text)
     ersal=Column(Text,ForeignKey('users.username'))
     img=Column(Text)
-    created_date = Column(DateTime, default=datetime.datetime.utcnow)
+    dat=Column(DateTime)
     usernam = relationship("User",foreign_keys="[Paygham.ersal]")
-    def __init__(self,mpayam,ersal,img,created_date):
+    def __init__(self,mpayam,ersal,img,dat):
         self.mpayam=mpayam
         self.ersal=ersal
         self.img=img
-        self.created_date=created_date
+
 class User(Base):
     __tablename__ = 'users'
     id = sa.Column(sa.Integer,
@@ -114,7 +154,6 @@ class User(Base):
     password = sa.Column(sa.Unicode(80), nullable=False)
     semat = sa.Column(sa.Unicode(80), nullable=False)
     mygroups = relationship(Groups, secondary='user_group')
-
     def __init__(self,name,lname,tel,email, username, password,semat):
         self.name = name
         self.lname=lname
@@ -123,6 +162,7 @@ class User(Base):
         self.username = username
         self._set_password(password)
         self.semat=semat
+
 
     @classmethod
     def by_id(cls, userid):
@@ -151,6 +191,7 @@ user_group_table = sa.Table('user_group', Base.metadata,
                             sa.Column('user_id', sa.Integer, sa.ForeignKey(User.id)),
                             sa.Column('group_id', sa.Integer, sa.ForeignKey(Groups.id)),
                             )
+
 class RootFactory(object):
     __acl__ = [(Allow, Everyone, 'everybody'),
                (Allow, 'basic', 'entry'),

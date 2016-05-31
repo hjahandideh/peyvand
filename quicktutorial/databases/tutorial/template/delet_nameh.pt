@@ -40,15 +40,7 @@
 		<div class="row ta">
             <ul class="nav nav-pills nav-stacked">
 
-
-            <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('view') }"><span class="glyphicon glyphicon-envelope"></span>صفحه نخست        </a></li>
-
-
-        </ul>
-        </div>
-        <div class="row ta">
-            <ul class="nav nav-pills nav-stacked" >
-            <div class="tb">نامه</div>
+<div class="tb">نامه</div>
                 <li role="presentation" ><a style="font-size: 18px;" href="${request.route_url('new_nameh') }"><span class="glyphicon glyphicon-envelope"></span>ایجاد نامه        </a></li>
                 <li role="presentation" ><a  style="font-size: 18px" href="${request.route_url('kartabl') }"> <span class="glyphicon glyphicon-envelope"></span>    صتدوق دریافت  <span class="badge" tal:content="nav"></span></a></li>
                 <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('ersal_nameh') }"><span class="glyphicon glyphicon-envelope"></span>ارسالی ها         </a></li>
@@ -67,41 +59,42 @@
             </ul>
         </div>
 
-    </div>   <div class="col-md-10">
+    </div>
+    <div class="col-md-10">
 
 
         <div class="row tm">
-            <h1>ثبت اطلاعیه</h1>
-            <form action="" method="post">
-                <input type="text" class="form-control" name="title" id="title" placeholder="عنوان" value="">
+
+            <input tal:repeat="page page" type="hidden" id="res1" value=${page.id}>
+         <table class="table" style="border:solid 1px">
+            <tr >
+                <td>شماره نامه</td>
+                <td>موضوع نامه</td>
+                <td>تاریخ ارسال</td>
+                <td>مهلت</td>
+                <td>
+                    شرح ارجاع
+                </td>
+
+            </tr>
+           <tr tal:repeat="page page">
+               <td>${page.id}</td>
+                <td>${page.mnameh}</td>
+                <td>${page.tarikher}</td>
+                <td>${page.mohlat}</td>
+               <td>${page.jahat}</td>
 
 
-                <textarea type="text" name="etla" placeholder="متن پیغام" id="etla" value=""></textarea>
 
-                <input type="submit" class="btn btn-primary" name="frm-etla" id="frm-submit" value="ارسال">
-
-            </form>
+           </tr>
+        </table>
 
         </div>
     </div>
 </div>
 <script src="${request.static_url('tutorial:js/bootstrap.min.js') }"></script>
-<script src="${request.static_url('tutorial:js/jquery-1.12.3.min.js') }"></script>
-<script src="${request.static_url('tutorial:js/ckeditor/ckeditor.js') }"></script>
-<script src="${request.static_url('tutorial:js/ckeditor/adapters/jquery.js') }"></script>
-<script>
-
-    $("#etla").ckeditor();
-</script>
-<script src="${request.static_url('tutorial:js/jquery-ui.min.js') }"></script>
-<script src="${request.static_url('tutorial:js/index.js') }"></script>
 
 
-
-<script src="${request.static_url('tutorial:js/pure_rte_lite.js') }"></script>
-<style type="text/css" media="screen">
-		body { padding:20px;}
-	</style>
 </body>
 </html>
 
