@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>سازمان الکترونیک پیوند</title>
+    <title>سازمان الکترونیک پیوند</title><link rel="icon" href="${request.static_url('tutorial:images/index.ico') }">
     <link rel="stylesheet"
           href="${request.static_url('tutorial:css/bootstrap-rtl.css') }"/>
        <link rel="stylesheet"

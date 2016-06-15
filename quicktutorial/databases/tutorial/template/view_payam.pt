@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>سازمان الکترونیک پیوند</title>
+    <title>سازمان الکترونیک پیوند</title><link rel="icon" href="${request.static_url('tutorial:images/index.ico') }">
     <link rel="stylesheet"
           href="${request.static_url('tutorial:css/bootstrap-rtl.css') }"/>
        <link rel="stylesheet"
@@ -70,9 +70,11 @@
     <div class="col-md-10">
         <div class="col-md-2"></div>
         <div  class="col-md-8" style="border: solid 1px;"  >
-            <div tal:repeat="page page" style="border:solid 1px;">${page.mopyam}</div>
+            <h4 style="color: black;background: #1d75b3;">موضوع پیام</h4>
+            <div tal:repeat="page page" >${page.mopyam}</div>
+            <h4 style="background: #1d75b3;color: black">متن پیام</h4>
 
-            <div tal:repeat="page page" >${structure:page.mapyam}</div>
+            <div tal:repeat="page page"  >${structure:page.mapyam}</div>
 
         </div>
         <div class="col-md-2"></div>

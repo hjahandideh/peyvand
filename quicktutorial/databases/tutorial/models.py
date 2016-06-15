@@ -1,11 +1,10 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
-import datetime
 import sqlalchemy as sa
 import os
 from hashlib import sha1
 from sqlalchemy import (
-    Column,DateTime,
+    Column,DateTime,Date,
     Integer,
     Text, ForeignKey)
 from pyramid.security import (
@@ -39,11 +38,7 @@ class payam(Base):
     usernam = relationship("User",foreign_keys="[payam.recive]")
     er=relationship("User",foreign_keys="[payam.ersal]")
 
-class groups(Base):
-    __tablename__='grooh'
-    id=Column(Integer,primary_key=True,autoincrement=True)
-    usr=Column(Text,ForeignKey('users.username'))
-    er=relationship("User",foreign_keys="[groups.usr]")
+
 class moerjah(Base):
     __tablename__='erjah'
     mer=Column(Text,primary_key=True)
@@ -52,7 +47,7 @@ class etela(Base):
     id=Column(Integer,primary_key=True,autoincrement=True)
     title=Column(Text)
     etla=Column(Text)
-    created_date = Column(DateTime, default=datetime.datetime.utcnow)
+    created_date = Column(DateTime)
 class Nameh(Base):
     __tablename__='nameh'
     id=Column(Integer,primary_key=True,autoincrement=True)
@@ -62,7 +57,7 @@ class Nameh(Base):
     manameh=Column(Text)
     recive=Column(Text, ForeignKey('users.username'))
     ersal=Column(Text, ForeignKey('users.username'))
-    tarikher=Column(Text)
+    tarikher=Column(DateTime)
     mohlat=Column(Text)
     emza=Column(Text)
     jahat=Column(Text,ForeignKey('erjah.mer'))
@@ -71,8 +66,7 @@ class Nameh(Base):
     usernam = relationship("User",foreign_keys="[Nameh.recive]")
     er=relationship("User",foreign_keys="[Nameh.ersal]")
     erja=relationship("moerjah",foreign_keys="[Nameh.jahat]")
-    def __init__(self,id,nnameh,mnameh,chnameh,manameh,recive,ersal,tarikher,mohlat,emza,jahat,peyvast,vaseiyat):
-        self.id=id
+    def __init__(self,nnameh,mnameh,chnameh,manameh,recive,ersal,tarikher,mohlat,emza,jahat,peyvast,vaseiyat):
         self.nnameh=nnameh
         self.mnameh=mnameh
         self.chnameh=chnameh
@@ -93,7 +87,7 @@ class Delet_Nameh(Base):
     chnameh=Column(Text)
     manameh=Column(Text)
     ersal=Column(Text, ForeignKey('users.username'))
-    tarikher=Column(Text)
+    tarikher=Column(DateTime)
     mohlat=Column(Text)
     emza=Column(Text)
     jahat=Column(Text,ForeignKey('erjah.mer'))
@@ -114,12 +108,8 @@ class Delet_Nameh(Base):
         self.jahat=jahat
         self.peyvast=peyvast
         self.vaseiyat=vaseiyat
-class Vorood(Base):
-    __tablename__='vorood'
-    id=Column(Integer,primary_key=True,autoincrement=True)
-    dat=Column(DateTime)
-    vorod=Column(Text,ForeignKey('users.username'))
-    er=relationship("User",foreign_keys="[Vorood.vorod]")
+
+
 class Image(Base):
     __tablename__='img'
     name=Column(Text,ForeignKey('users.username'))

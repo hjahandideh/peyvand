@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>سازمان الکترونیک پیوند</title>
+    <title>سازمان الکترونیک پیوند</title><link rel="icon" href="${request.static_url('tutorial:images/index.ico') }">
     <link rel="stylesheet"
           href="${request.static_url('tutorial:css/bootstrap-rtl.css') }"/>
        <link rel="stylesheet"
@@ -22,7 +22,7 @@
         <div class="row" style="background-image:url(${request.static_url('tutorial:images/header2.jpg') });">
             <div class="col-md-12">
                 <div class="col-md-3"  tal:repeat="log log">کاربر:${log.name} ${log.lname}</div>
-                <div class="col-md-5"><a tal:condition="view.logged_in is not None" href="${request.application_url}/"><p tal:repeat="log log">خروج</p></a><p style="font-size:20pt">کاربر محترم به اتوماسیون اداری خوش آمدید</p></div>
+                <div class="col-md-5"><a href="${request.route_url('logout') }"><p style="color:black;" tal:repeat="log log">خروج</p></a><p style="font-size:20pt">کاربر محترم به اتوماسیون اداری خوش آمدید</p></div>
                 <div class="col-md-2"  tal:repeat="log log">سمت:${log.semat}</div>
                 <div class="col-md-2"  tal:repeat="mag mag"><img  class="imgsize" src="${request.static_url(mag.img) }"></div>
 
@@ -73,7 +73,8 @@
         <div class="row" style="float:right;width:1470px;">
     <table class="table">
         <tr class="tb"><td>اطلاعیه ها</td></tr>
-        <tr tal:repeat="et et"><td>${et.etla}</td></tr>
+        <tr tal:repeat="et et"><td><a href="${request.route_url('view_etla', id=et.id)}">${et.title}
+        </a></td></tr>
     </table>
     <table class="table">
           <tr class="tb"><td>خلاصه آماری </td></tr>

@@ -24,7 +24,7 @@
         <div class="row" style="background-image:url(${request.static_url('tutorial:images/header2.jpg') });">
             <div class="col-md-12">
                 <div class="col-md-3"  tal:repeat="log log">کاربر:${log.name} ${log.lname} </div>
-                <div class="col-md-5"><a tal:condition="view.logged_in is not None" href="${request.application_url}/"><p tal:repeat="log log">خروج</p></a><p style="font-size:20pt">کاربر محترم به اتوماسیون اداری خوش آمدید</p></div>
+                <div class="col-md-5"><a href="${request.route_url('logout') }"><p style="color:black;" tal:repeat="log log">خروج</p></a></div>
                 <div class="col-md-2"  tal:repeat="log log">سمت:${log.semat}</div>
                 <div class="col-md-2"  tal:repeat="mag mag"><img  class="imgsize" src="${request.static_url(mag.img) }"></div>
 
@@ -52,9 +52,10 @@
 
             <div class="tb">نامه</div>
             <li role="presentation" ><a style="font-size: 18px;" href="${request.route_url('mnew_nameh') }"><span class="glyphicon glyphicon-envelope"></span>ایجاد نامه        </a></li>
-            <li role="presentation" ><a  style="font-size: 18px" href="${request.route_url('mkartabl') }"> <span class="glyphicon glyphicon-envelope"></span>    صتدوق دریافت  <span class="badge" tal:content="nav"></span></a></li>
+            <li role="presentation" ><a  style="font-size: 18px" href="${request.route_url('mkartabl') }"> <span class="glyphicon glyphicon-envelope"></span>    صندوق دریافت  <span class="badge" tal:content="nav"></span></a></li>
             <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('mersal_nameh') }"><span class="glyphicon glyphicon-envelope"></span>ارسالی ها         </a></li>
             <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('mpishnevis') }"><span class="glyphicon glyphicon-envelope"></span>پیش نویس ها         </a></li>
+            <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('mdelet_nameh') }"><span class="glyphicon glyphicon-envelope"></span>حذف شده ها         </a></li>
 
         </ul>
         </div>
@@ -63,7 +64,7 @@
                 <div class="tb">پیغام</div>
 
                 <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('mersal_payam') }"><span class="glyphicon glyphicon-envelope"></span>ارسال ها</a></li>
-                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('mrecive_payam') }"><span class="glyphicon glyphicon-envelope"></span>پیغام دریافتی<span class="badge" tal:content="nav"></span></a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('mrecive_payam') }"><span class="glyphicon glyphicon-envelope"></span>پیغام دریافتی<span class="badge" tal:content="payamr"></span></a></li>
                 <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('mnew_payam') }"><span class="glyphicon glyphicon-envelope"></span>ایجاد پیغام</a></li>
 
             </ul>
@@ -71,8 +72,8 @@
 
         <div class="row ta">
              <ul class="nav nav-pills nav-stacked">
-                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('search') }"><span class="glyphicon glyphicon-envelope"></span>ثبت اطلاعیه</a></li>
-                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('save') }"><span class="glyphicon glyphicon-save"></span>مدیریت کاربران </a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('new_etla') }"><span class="glyphicon glyphicon-envelope"></span>ثبت اطلاعیه</a></li>
+                <li role="presentation" ><a style="font-size: 18px" href="${request.route_url('user') }"><span class="glyphicon glyphicon-save"></span>مدیریت کاربران </a></li>
             </ul>
         </div>
 
@@ -103,11 +104,11 @@
                 <td>${usr.ersal}</td>
                <td>${usr.jahat}</td>
 
-               <td><a href="${request.route_url('view_nameh', id=usr.id)}">
+               <td><a href="${request.route_url('mview_nameh', id=usr.id)}">
                    مشاهده
                </a></td>
-               <td><a href="${request.route_url('view_nameh', id=usr.id)}">
-                   تایید
+               <td><a href="${request.route_url('mdelet', id=usr.id)}">
+حذف
                </a></td>
            </tr>
         </table>

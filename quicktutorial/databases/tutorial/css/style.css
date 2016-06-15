@@ -228,5 +228,10 @@ h1:after{
 	border-radius: 15px;
 
 }
+.frmstyle{
+	border: solid black 1px;
+	margin: 15px;
+	padding: 15px;
+}
 
 

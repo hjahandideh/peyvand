@@ -37,7 +37,7 @@ def main(argv=sys.argv):
         group2 = Groups('secured')
         session.add(group1)
         session.add(group2)
-        user1.mygroups.append(group1)
+        user1.mygroups.append(group2)
         session.add(user1)
         transaction.commit()
     except IntegrityError:
